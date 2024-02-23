@@ -11,7 +11,13 @@ import adminUrlPathname from './utils/adminUrlPathname'
 
 function App() {
   const location = useLocation();
-
+  fetch("http://localhost/codeigniter/admin/product/fetchProduct",{
+    method: "GET",
+    headers: {
+      "Content-Type":"application/json",
+      "Authorization":"fsdkfdsfjsdklfksljfskdjf"
+    }
+  })
 
   return (
     <>
