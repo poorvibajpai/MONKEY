@@ -18,7 +18,7 @@ const ProductCard = ({ width,imgUrl }: ProductProps) => {
       <Link to={"/product/1"} className="block overflow-hidden">
         <img
           // src="https://overlays.co/cdn/shop/files/DSC00270copy2.jpg?v=1699162260&width=300"
-          src={imgUrl}
+          src={imgUrl ? imgUrl : productImg}
           alt="Laptop"
           className="max-h-[350px] w-full rounded-sm hover-effect hover:scale-x-110 transition-transform duration-1000 ease-in-out cursor-pointer hover:transform hover:scale-110"
         />
