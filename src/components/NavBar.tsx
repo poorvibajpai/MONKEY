@@ -3,25 +3,26 @@
 import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom"
 // import Cart from "./Cart"
-
+// import logo from "../assets/monkey_logo.png"
+import logo from "../assets/monkey_log2.png";
 type NavItems = {
   to: string
   name: string
 }
 
-const NavBar = ({navItems}: {navItems: NavItems[]}) => {
-  
+const NavBar = ({ navItems }: { navItems: NavItems[] }) => {
+
   const location = useLocation();
-  useEffect(()=>{
-    window.scroll(0,0)
-  },[location])
+  useEffect(() => {
+    window.scroll(0, 0)
+  }, [location])
 
 
   return (
-    <div className="relative w-full bg-white">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-5 sm:px-6 lg:px-8">
-        <div className="inline-flex items-center space-x-2">
-          <span>
+    <div className="relative w-full bg-yellow-300">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+        <div className="w-[15%]">
+          {/* <span>
             <svg
               width="30"
               height="30"
@@ -34,8 +35,9 @@ const NavBar = ({navItems}: {navItems: NavItems[]}) => {
                 fill="black"
               />
             </svg>
-          </span>
-          <span className="font-bold">FASHIONKART</span>
+          </span> */}
+          {/* <span className="font-bold">Monkey</span> */}
+            <img src={logo} alt="" className="w-full max-h-[40px] object-cover object-center mix-blend-multiply" />
         </div>
         <div className="hidden lg:block">
           <ul className="inline-flex space-x-8">

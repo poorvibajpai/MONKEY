@@ -18,7 +18,7 @@ const HeroSlider = ({ items }: HeroProps) => {
         {
           items.map((img,i) =>
             <div key={i}>
-              <img src={img} />
+              <img src={img} className="w-full h-full object-cover"/>
               {/* <p className="legend">Legend 1</p> */}
             </div>
           )}

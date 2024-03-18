@@ -1,6 +1,8 @@
-import CreateProduct from "../pages/admin/CreateProduct";
-import Dashboard from "../pages/admin/Dashboard";
-import ViewProducts from "../pages/admin/ViewProducts";
+import {lazy} from "react"
+
+const CreateProduct = lazy(()=>import("../pages/admin/CreateProduct"))
+const Dashboard = lazy(()=>import("../pages/admin/Dashboard"))
+const ViewProducts = lazy(()=>import("../pages/admin/ViewProducts"))
 
 const adminRoutes = [
   {
