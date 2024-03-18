@@ -45,7 +45,7 @@ function App() {
           <nav className='fixed top-0 left-0 z-50 w-full'>
             <NavBar navItems={websiteUrlPathName} />
           </nav>
-          <section className='relative top-[78px] p-5'>
+          <section className='relative top-[78px] p-5 min-h-screen'>
             
             <Routes>
               {

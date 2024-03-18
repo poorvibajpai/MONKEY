@@ -6,6 +6,7 @@ const HomePage = lazy(() => import("../pages/HomePage"));
 const ProductPage = lazy(() => import("../pages/ProductPage"));
 const SignInPage = lazy(() => import("../pages/SignInPage"));
 const SignUpPage = lazy(() => import("../pages/SignUpPage"));
+const CartPage = lazy(() => import("../pages/CartPage"));
 
 const websiteRoutes = [
  {
@@ -33,6 +34,10 @@ const websiteRoutes = [
  {
   path: "/product/:id",
   element: ProductPage,
+ },
+ {
+  path: "/cart",
+  element: CartPage,
  },
 ];
 

@@ -9,19 +9,21 @@ const sizes = [
 
 type ProductProps = {
   width?: string;
-  imgUrl?:string;
+  imgUrl?: string;
 }
 
-const ProductCard = ({ width,imgUrl }: ProductProps) => {
+const ProductCard = ({ width, imgUrl }: ProductProps) => {
   return (
     <div className={`rounded-md border w-${width} my-2 h-max`}>
       <Link to={"/product/1"} className="block overflow-hidden">
-        <img
-          // src="https://overlays.co/cdn/shop/files/DSC00270copy2.jpg?v=1699162260&width=300"
-          src={imgUrl ? imgUrl : productImg}
-          alt="Laptop"
-          className="max-h-[350px] w-full rounded-sm hover-effect hover:scale-x-110 transition-transform duration-1000 ease-in-out cursor-pointer hover:transform hover:scale-110"
-        />
+        <div className="max-h-[350px] overflow-hidden">
+          <img
+            // src="https://overlays.co/cdn/shop/files/DSC00270copy2.jpg?v=1699162260&width=300"
+            src={imgUrl ? imgUrl : productImg}
+            alt="Laptop"
+            className="max-h-[350px] w-full rounded-sm hover-effect hover:scale-x-110 transition-transform duration-1000 ease-in-out cursor-pointer hover:transform hover:scale-110"
+          />
+        </div>
         <div className="p-4">
           <h1 className="inline-flex items-center text-lg font-semibold">Nike Airmax v2</h1>
           <h1 className='my-2 text-orange-600 font-semibold'>From ₹ 2,899.00</h1>
