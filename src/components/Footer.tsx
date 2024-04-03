@@ -1,4 +1,4 @@
-import logo from "../assets/logo.jpeg";
+import logo from "../assets/Monkey.png";
 
 const Footer = () => {
   return (
@@ -9,11 +9,11 @@ const Footer = () => {
       <div className="w-full p-6 md:w-1/2 lg:w-5/12">
         <div className="flex h-full flex-col justify-between">
           <div className="mb-4 inline-flex items-center">
-            <img src={logo} alt="" className="w-[70%] h-[70%]" />
+            <img src={logo} alt="" className="w-[400px] h-[400px]" />
           </div>
           <div className="bg-black">
   <div className="flex items-center gap-x-5 p-11">
-    <a href="" aria-label="Find us on LinkedIn" target="_blank" rel="noopener">
+    <a href="www.linkedin.com" aria-label="Find us on LinkedIn" target="_blank" rel="noopener">
       <svg
         className="h-10 w-10 text-white"
         viewBox="0 0 48 48"
@@ -26,7 +26,7 @@ const Footer = () => {
         />
       </svg>
     </a>
-    <a href="" aria-label="Find us on Twitter" target="_blank" rel="noopener">
+    <a href="www.x.com" aria-label="Find us on Twitter" target="_blank" rel="noopener">
       <svg
         className="h-10 w-10 text-white"
         viewBox="0 0 48 40"
@@ -39,7 +39,7 @@ const Footer = () => {
         />
       </svg>
     </a>
-    <a href="" aria-label="Find us on Facebook" target="_blank" rel="noopener">
+    <a href="www.facebook.com" aria-label="Find us on Facebook" target="_blank" rel="noopener">
       <svg
         className="h-10 w-10 text-white"
         viewBox="0 0 48 48"
@@ -52,7 +52,7 @@ const Footer = () => {
         />
       </svg>
     </a>
-    <a href="" aria-label="Find us on Instagram" target="_blank" rel="noopener">
+    <a href="www.instagram.com" aria-label="Find us on Instagram" target="_blank" rel="noopener">
       <svg
         className="h-10 w-10 text-white"
         viewBox="0 0 48 48"
@@ -248,7 +248,8 @@ const Footer = () => {
       </div>
     </div>
   </div>
-  <p className="flex p-9 text-normal text-white ">
+  <br></br>
+  <p className="flex items-center justify-center p-9 text-normal text-white ">
               © Copyright 2024. All Rights Reserved by Monkey.</p>
 </section>
 

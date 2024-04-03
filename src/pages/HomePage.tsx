@@ -9,12 +9,11 @@ import img1 from "../assets/monkey_home_1.jpeg"
 import img2 from "../assets/monkey_home_2.jpeg"
 import img3 from "../assets/mankey_home_3.jpeg"
 import BeforeFooter from "../components/BeforeFooter"
+import img4 from "../assets/Banner01.jpeg"
+import img5 from "../assets/Banner02.jpeg"
 
-
-const img4 = "https://overlays.co/cdn/shop/files/3b_dekstop.png?v=1704951198&width=1400"
-const img5 = "https://overlays.co/cdn/shop/files/3a_dekstop.png?v=1704951202&width=1400"
-const img6 = "https://overlays.co/cdn/shop/files/4a_dekstop.png?v=1704951207&width=1400"
-const img7 = "https://overlays.co/cdn/shop/files/4b_dekstop.png?v=1704951201&width=1400"
+import img6 from "../assets/Banner04.jpeg"
+import img7 from "../assets/Banner05.jpeg"
 const HomePage = () => {
   return (
     <div className="">

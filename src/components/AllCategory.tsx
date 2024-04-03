@@ -60,3 +60,4 @@ const AllCategory = () => {
 }
 
 export default AllCategory
+
