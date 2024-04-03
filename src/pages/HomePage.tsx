@@ -14,6 +14,7 @@ import img5 from "../assets/Banner02.jpeg"
 
 import img6 from "../assets/Banner04.jpeg"
 import img7 from "../assets/Banner05.jpeg"
+import Sponser from "../components/ui/Sponser"
 const HomePage = () => {
   return (
     <div className="">
@@ -41,6 +42,8 @@ const HomePage = () => {
       <AllCategory/>
       <Banner />
       <BeforeFooter/>
+      <Sponser />
+      <br></br>
     </div>
   )
 }

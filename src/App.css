@@ -28,4 +28,17 @@
     opacity: 1;
   }
 }
+.cart-count{
+  animation: shake 0.7s infinite alternate;
+}
 
+@keyframes shake {
+  0% {
+      top:-16px;
+
+  }
+  100% {
+      top:-13px;
+  }
+  
+}

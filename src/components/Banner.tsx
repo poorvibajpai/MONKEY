@@ -1,47 +1,43 @@
-import image from '../assets/abc.png'
+//import image from '../assets/abc.png'
 const Banner = () => {
   return (
-    <div>
-      <main className="dark:bg-gray-800 bg-white relative overflow-hidden h-screen">
-
-  <div className="bg-white dark:bg-gray-800 flex relative z-20 items-center overflow-hidden">
-    <div className="container mx-auto px-6 flex relative py-16">
-      <div className="sm:w-2/3 lg:w-2/5 flex flex-col relative z-20">
-        <span className="w-20 h-2 bg-gray-800 dark:bg-white mb-12"></span>
-        <h1 className="font-bebas-neue uppercase text-6xl sm:text-8xl font-black flex flex-col leading-none dark:text-white text-gray-800">
-          Think
-          <span className="text-5xl sm:text-7xl">Different</span>
-        </h1>
-        <p className="text-sm sm:text-base text-gray-700 dark:text-white">
-          Dimension of reality that makes change possible and understandable. An
-          indefinite and homogeneous environment in which natural events and
-          human existence take place.
+  <>
+  <section className="pt-10 overflow-hidden bg-gray-50 md:pt-0 sm:pt-16 2xl:pt-16">
+  <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
+    <div className="grid items-center grid-cols-1 md:grid-cols-2">
+      <div>
+        <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
+      Monkey X Series
+        </h2>
+        <p className="max-w-lg mt-3 text-xl leading-relaxed text-gray-600 md:mt-8">
+          Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
+          sint. Velit officia consequat duis enim velit mollit. Exercitation
+          veniam consequat sunt nostrud amet.
         </p>
-        <div className="flex mt-8">
-          <a
-            href="#"
-            className="uppercase py-2 px-4 rounded-lg bg-pink-500 border-2 border-transparent text-white text-md mr-4 hover:bg-pink-400"
-          >
-            Shop Now
-          </a>
-          <a
-            href="#"
-            className="uppercase py-2 px-4 rounded-lg bg-transparent border-2 border-pink-500 text-pink-500 dark:text-white hover:bg-pink-500 hover:text-white text-md"
-          >
-            Order
-          </a>
-        </div>
+        <p className="mt-4 text-xl text-gray-600 md:mt-8">
+          <div className="flex space-x-4">
+          <button className="mt-8 inline-flex items-center justify-center rounded-xl bg-pink-500 py-3 px-6 font-dm text-base font-medium text-white shadow-xl shadow-pink-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.02]"> Add to Cart </button>
+          <button className="mt-8 inline-flex items-center justify-center rounded-xl bg-blue-600 py-3 px-6 font-dm text-base font-medium text-white shadow-xl shadow-blue-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.02]">Buy Now</button>
+          </div>
+        </p>
       </div>
-      <div className="hidden sm:block sm:w-1/3 lg:w-3/5 relative">
+      <div className="relative">
         <img
-          src={image}
-          className="max-w-xs md:max-w-sm m-auto"
+          className="absolute inset-x-0 bottom-0 -mb-48 -translate-x-1/2 left-1/2"
+          src="https://cdn.rareblocks.xyz/collection/celebration/images/team/1/blob-shape.svg"
+          alt=""
+        />
+        <img
+          className="relative w-full xl:max-w-lg xl:mx-auto 2xl:origin-bottom 2xl:scale-110"
+          src="https://cdn.rareblocks.xyz/collection/celebration/images/team/1/business-woman.png"
+          alt=""
         />
       </div>
     </div>
   </div>
-</main>
-    </div>
+</section>
+
+  </>
   )
 }
 
