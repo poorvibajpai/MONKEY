@@ -1,3 +1,5 @@
+import CategoryList from "../components/CategoryList";
+
 export default function ProductPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 md:px-8 2xl:px-16">
@@ -16,7 +18,7 @@ export default function ProductPage() {
         <div className="col-span-4 pt-8 lg:pt-0">
           <div className="mb-7 border-b border-gray-300 pb-7">
             <h2 className="text-heading mb-3.5 text-lg font-bold md:text-xl lg:text-2xl 2xl:text-3xl">
-              Nike Air Max 95 By You
+              Monkey X series 
             </h2>
             <p className="text-body text-sm leading-6  lg:text-base lg:leading-8">
               The Nike Air Max 95 By You lets you take inspiration from the human body itself. The
@@ -25,10 +27,10 @@ export default function ProductPage() {
             </p>
             <div className="mt-5 flex items-center ">
               <div className="text-heading pr-2 text-base font-bold md:pr-0 md:text-xl lg:pr-2 lg:text-2xl 2xl:pr-0 2xl:text-4xl">
-                $40.00
+                  999
               </div>
               <span className="font-segoe pl-2 text-sm text-gray-400 line-through md:text-base lg:text-lg xl:text-xl">
-                $50.00
+                1599
               </span>
             </div>
           </div>
@@ -143,6 +145,9 @@ export default function ProductPage() {
           </div>
         </div>
       </div>
+      Similar Prouducts
+      <CategoryList />
+      <CategoryList />
     </div>
   )
 }
