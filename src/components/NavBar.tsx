@@ -1,16 +1,18 @@
 // import React from 'react'
 
 import { useEffect } from "react";
-import { Link, useLocation } from "react-router-dom"
+import { Link, NavLink, useLocation } from "react-router-dom"
 // import Cart from "./Cart"
 // import logo from "../assets/monkey_logo.png"
-import logo from "../assets/monkey_log2.png";
+import logo from "../assets/monkey_logo.jpeg";
+import { useSelector } from "react-redux";
 type NavItems = {
   to: string
   name: string
 }
 
 const NavBar = ({ navItems }: { navItems: NavItems[] }) => {
+  const cart = useSelector((state:any) => state.cart.cartItems)
 
   const location = useLocation();
   useEffect(() => {
@@ -19,7 +21,7 @@ const NavBar = ({ navItems }: { navItems: NavItems[] }) => {
 
 
   return (
-    <div className="relative w-full bg-yellow-300">
+    <div className="relative w-full bg-black text-white">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <div className="w-[15%]">
           {/* <span>
@@ -37,18 +39,18 @@ const NavBar = ({ navItems }: { navItems: NavItems[] }) => {
             </svg>
           </span> */}
           {/* <span className="font-bold">Monkey</span> */}
-          <img src={logo} alt="" className="w-full max-h-[40px] object-cover object-center mix-blend-multiply" />
+          <img src={logo} alt="" className="w-full max-h-[40px] object-cover object-center" />
         </div>
         <div className="hidden lg:block">
           <ul className="inline-flex space-x-8">
             {navItems.map((item) => (
               <li key={item.name}>
-                <Link
+                <NavLink
                   to={item.to}
-                  className={`text-base font-semibold ${item.name == "Sale" ? "text-red-500 hover:text-red-600" : "text-gray-800 hover:text-gray-900"}  `}
+                  className={`menu-links text-base font-semibold ${item.name == "Sale" ? "text-red-500 hover:text-red-600" : "text-white hover:text-white"} `}
                 >
                   {item.name}
-                </Link>
+                </NavLink>
               </li>
             ))}
           </ul>
@@ -63,7 +65,7 @@ const NavBar = ({ navItems }: { navItems: NavItems[] }) => {
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
               <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
             </svg>
-            {/* <span className="absolute -top-2 -right-2 bg-black text-white w-5 h-5 rounded-full flex text-xs font-bold items-center justify-center p-2">20</span> */}
+            <span className="absolute -top-2 -right-2 bg-white text-black w-5 h-5 rounded-full flex text-xs font-bold items-center justify-center p-2">{cart?.length}</span>
           </Link>
           {/* <Cart/> */}
 

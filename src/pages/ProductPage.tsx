@@ -1,5 +1,8 @@
 // import React from 'react'
 
+import { useDispatch } from "react-redux"
+import { addItemInCart } from "../redux/slices/cartSlice";
+
 
 // const data = {
 //   title:"",
@@ -10,7 +13,17 @@
 //   colors:['bg-orange-400', 'bg-pink-400', 'bg-violet-600', 'bg-red-500'],
 // }
 
+const product = {
+  productId:"1",
+  name:"nike",
+  unitPrice:40,
+  quantity:2,
+  totalQuantity:10
+}
+
 export default function ProductPage() {
+  const dispatch = useDispatch();
+
   return (
     <div className="mx-auto max-w-7xl px-4 md:px-8 2xl:px-16">
       {/* <div className="pt-8">
@@ -103,16 +116,17 @@ export default function ProductPage() {
                 className="text-heading hover:bg-heading flex h-full w-10 flex-shrink-0 items-center justify-center border-e border-gray-300 transition duration-300 ease-in-out focus:outline-none md:w-12"
                 disabled
               >
-                +
+                -
               </button>
               <span className="duration-250 text-heading flex h-full w-12  flex-shrink-0 cursor-default items-center justify-center text-base font-semibold transition-colors ease-in-out  md:w-20 xl:w-24">
                 1
               </span>
               <button className="text-heading hover:bg-heading flex h-full w-10 flex-shrink-0 items-center justify-center border-s border-gray-300 transition duration-300 ease-in-out focus:outline-none md:w-12">
-                -
+                +
               </button>
             </div>
             <button
+            onClick={() => dispatch(addItemInCart(product))}
               type="button"
               className="h-11 w-full rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
