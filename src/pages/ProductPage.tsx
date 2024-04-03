@@ -26,27 +26,6 @@ export default function ProductPage() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 md:px-8 2xl:px-16">
-      {/* <div className="pt-8">
-        <div className="flex items-center">
-          <ol className="flex w-full items-center overflow-hidden">
-            <li className="text-body hover:text-heading px-2.5 text-sm transition duration-200 ease-in first:pl-0 last:pr-0">
-              <a href="#">Home</a>
-            </li>
-            <li className="text-body mt-0.5 text-base">/</li>
-            <li className="text-body hover:text-heading px-2.5 text-sm transition duration-200 ease-in first:pl-0 last:pr-0">
-              <a className="capitalize" href="#">
-                products
-              </a>
-            </li>
-            <li className="text-body mt-0.5 text-base">/</li>
-            <li className="text-body hover:text-heading px-2.5 text-sm transition duration-200 ease-in first:pl-0 last:pr-0">
-              <a className="capitalize" href="#">
-                Nike Shoes
-              </a>
-            </li>
-          </ol>
-        </div>
-      </div> */}
       <div className="block grid-cols-9 items-start gap-x-10 pb-10 pt-7 lg:grid lg:pb-14 xl:gap-x-14 2xl:pb-20">
         <div className="col-span-5 grid grid-cols-2 gap-2.5">
           {Array.from({ length: 4 }, (_, i) => (

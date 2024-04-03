@@ -8,10 +8,10 @@ const Collections = () => {
   let heading = category
   switch(category){
     case "mens":
-      heading = "Men"
+      heading = "Monkey Man"
       break
     case "womens":
-      heading = "Women"
+      heading = "Monkey Women"
       break
     case "sale":
       heading = "Sale ends in 5 days"

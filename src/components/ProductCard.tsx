@@ -1,7 +1,7 @@
 // import React from 'react'
 
 import { Link } from "react-router-dom"
-import productImg from "../assets/monkey_product_1.jpeg"
+import productImg from "../assets/all-Categories/monkey_allCategories4.jpeg"
 const sizes = [
   "XS", "S", "M", "L", "XL", "XXL"
 ]
@@ -25,8 +25,11 @@ const ProductCard = ({ width, imgUrl }: ProductProps) => {
           />
         </div>
         <div className="p-4">
-          <h1 className="inline-flex items-center text-lg font-semibold">Nike Airmax v2</h1>
-          <h1 className='my-2 text-orange-600 font-semibold'>From ₹ 2,899.00</h1>
+          <h1 className="inline-flex items-center text-lg font-semibold">Monkey X Series</h1>
+          <h1 className='my-2 text-orange-600 font-semibold'>From ₹ 999</h1>
+          <button className="w-full bg-black hover:bg-yellow-500 text-white font-semibold hover:text-white py-2 px-4 border border-black hover:border-transparent rounded">
+  Buy Now
+</button>
           <div className="mt-3 flex items-center space-x-2">
             {sizes.map((size) =>
               <span key={size} className="flex-1 text-center cursor-pointer rounded-sm border border-gray-400 p-1 px-2 text-base font-medium hover:bg-[#e6e6e6] hover:border-black">

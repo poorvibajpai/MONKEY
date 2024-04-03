@@ -1,5 +1,5 @@
 // import React from 'react'
-import productImg from "../assets/monkey_product_1.jpeg"
+//import productImg from "../assets/monkey_product_1.jpeg"
 import ProductCard from "./ProductCard"
 import img1 from "../assets/monkey_product_2.jpeg"
 import img2 from "../assets/monkey_product_3.jpeg"
