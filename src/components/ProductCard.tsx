@@ -1,9 +1,9 @@
 // import React from 'react'
 import { Link } from "react-router-dom"
 import productImg from "../assets/all-Categories/monkey_allCategories4.jpeg"
-const sizes = [
-  "XS", "S", "M", "L", "XL", "XXL"
-]
+// const sizes = [
+//   "XS", "S", "M", "L", "XL", "XXL"
+// ]
 
 
 type ProductProps = {
