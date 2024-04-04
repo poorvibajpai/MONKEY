@@ -1,12 +1,12 @@
 // import React from 'react'
-import img1 from "../assets/all-Categories/monkey_allCategories1.jpeg"
-import img2 from "../assets/all-Categories/monkey_allCategories2.jpeg"
-import img3 from "../assets/all-Categories/monkey_allCategories3.jpeg"
-import img4 from "../assets/all-Categories/monkey_allCategories4.jpeg"
-import img5 from "../assets/all-Categories/monkey_allCategories5.jpeg"
-import img6 from "../assets/all-Categories/monkey_allCategories6.jpeg"
-import img7 from "../assets/all-Categories/monkey_allCategories7.jpeg"
-import img8 from "../assets/all-Categories/monkey_allCategories8.jpeg"
+import img1 from "../assets/category/1688110917303.jpg"
+import img2 from "../assets/category/08574402800-e1.jpg"
+import img3 from "../assets/category/08062455400-e1.jpg"
+import img4 from "../assets/category/07545426401-e1.jpg"
+import img5 from "../assets/category/07545350802-e1.jpg"
+import img6 from "../assets/category/06318411800-e1.jpg"
+import img7 from "../assets/category/04576921102-e1.jpg"
+import img8 from "../assets/category/04231426485-e1.jpg"
 
 const data = [
   {
