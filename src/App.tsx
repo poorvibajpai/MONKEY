@@ -10,10 +10,12 @@ import adminRoutes from './routes/adminRoutes'
 import websiteUrlPathName from './utils/websiteUrlPathName'
 import adminUrlPathname from './utils/adminUrlPathname'
 import Loader from './components/ui/Loader';
+import { getDocument } from './appwrite/appwrite';
 
 
 function App() {
   const location = useLocation();
+  getDocument();
   // fetch("http://localhost/codeigniter/admin/product/fetchProduct", {
   //   method: "GET",
   //   headers: {
