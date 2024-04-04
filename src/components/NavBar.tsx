@@ -19,7 +19,7 @@ const NavBar = ({ navItems }: { navItems: NavItems[] }) => {
 
 
   return (
-    <div className="relative w-full bg-yellow-300">
+    <div className="relative w-full bg-black">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <div className="w-[15%]">
           {/* <span>

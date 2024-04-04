@@ -60,7 +60,7 @@ function App() {
               }
               <Route path='*' element={<HomePage />} />
             </Routes>
-          </section>
+          </section><br />
           <Footer />
         </>}
     </>

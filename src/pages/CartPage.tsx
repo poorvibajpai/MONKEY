@@ -2,7 +2,7 @@
 
 const CartPage = () => {
   return (
-    <div className=''>
+    <div className='text-red-800'>
       this is cart page
     </div>
   )
