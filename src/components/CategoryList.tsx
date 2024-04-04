@@ -1,10 +1,12 @@
-// import React from 'react'
-//import productImg from "../assets/monkey_product_1.jpeg"
 import ProductCard from "./ProductCard"
-import img1 from "../assets/monkey_product_2.jpeg"
-import img2 from "../assets/monkey_product_3.jpeg"
-import img3 from "../assets/monkey_product_4.jpeg"
-import img4 from "../assets/monkey_product_5.jpeg"
+import img1 from "../assets/category/model-74-thumb.png"
+import img2 from "../assets/category/model-179-thumb (1).png"
+import img3 from "../assets/category/model-190-thumb.png"
+import img4 from "../assets/category/model-271-thumb.png"
+import img5 from "../assets/category/model-270-thumb.png"
+import img6 from "../assets/category/model-66-thumb.png"
+import img7 from "../assets/category/model-69-thumb.png"
+import img8 from "../assets/category/model-273-thumb.png"
 const data = [
   {
     imgUrl:img1
@@ -17,6 +19,18 @@ const data = [
   },
   {
     imgUrl:img4
+  }, 
+  {
+    imgUrl:img5
+  },
+  {
+    imgUrl:img6
+  },
+  {
+    imgUrl:img7
+  },
+  {
+    imgUrl:img8
   },
 ]
 
@@ -30,7 +44,7 @@ const CategoryList = ({ list }: { list?: string[] }) => {
       </ul>
       <div className="flex justify-evenly flex-wrap">
         {data.map((item, i) => (
-          <ProductCard width={"25%"} key={i} imgUrl={item.imgUrl}/>
+          <ProductCard width={"20%"} key={i} imgUrl={item.imgUrl}/>
         ))}
 
       </div>

@@ -11,10 +11,9 @@ import img3 from "../assets/mankey_home_3.jpeg"
 import BeforeFooter from "../components/BeforeFooter"
 import img4 from "../assets/Banner01.jpeg"
 import img5 from "../assets/Banner02.jpeg"
-
 import img6 from "../assets/Banner04.jpeg"
 import img7 from "../assets/Banner05.jpeg"
-import Sponser from "../components/ui/Sponser"
+import Items from "../components/Items"
 const HomePage = () => {
   return (
     <div className="">
@@ -23,7 +22,7 @@ const HomePage = () => {
 
       {/* ------------------ category jacket - sweatshirt - hoodies ------------------- */}
 
-      <CategoryList list={["JACKETS", "SWEATSHIRTS", "HOODIES"]} />
+      <Items list={["JACKETS", "SWEATSHIRTS", "HOODIES"]} />
 
       <HeroSlider items={[img4, img5]} />
 
@@ -33,17 +32,17 @@ const HomePage = () => {
       >
         <div><CategoryList /></div>
         <div><CategoryList /></div>
+
       </Carousel>
 
       <HeroSlider items={[img6, img7]} />
 
-      <CategoryList list={["TSHIRT", "JOGGERS", "SHIRTS"]} />
+      <Items />
 
       <AllCategory/>
       <Banner />
+      <Items />
       <BeforeFooter/>
-      <Sponser />
-      <br></br>
     </div>
   )
 }

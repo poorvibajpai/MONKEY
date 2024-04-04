@@ -1,4 +1,5 @@
-import CategoryList from "../components/CategoryList";
+
+import Items from "../components/Items";
 
 export default function ProductPage() {
   return (
@@ -83,8 +84,7 @@ export default function ProductPage() {
             </div>
             <button
               type="button"
-              className="h-11 w-full rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-            >
+              className="h-11 w-full rounded-md  bg-red-600 py-3 px-6 font-dm text-base font-medium text-white shadow-xl shadow-red-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.02]"> 
               Add to cart
             </button>
           </div>
@@ -146,8 +146,7 @@ export default function ProductPage() {
         </div>
       </div>
       Similar Prouducts
-      <CategoryList />
-      <CategoryList />
+      <Items />
     </div>
   )
 }
