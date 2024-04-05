@@ -14,7 +14,10 @@ import img5 from "../assets/Banner02.jpeg"
 import img6 from "../assets/Banner04.jpeg"
 import img7 from "../assets/Banner05.jpeg"
 import Items from "../components/Items"
+import useFetch from "../hooks/useFetch"
 const HomePage = () => {
+  const {data,error,loading} = useFetch("/products");
+
   return (
     <div className="">
       {/* <HeroSlider items={[img1, img2, img3]} /> */}
@@ -22,7 +25,12 @@ const HomePage = () => {
 
       {/* ------------------ category jacket - sweatshirt - hoodies ------------------- */}
 
-      <Items list={["JACKETS", "SWEATSHIRTS", "HOODIES"]} />
+      <Items 
+        list={["JACKETS", "SWEATSHIRTS", "HOODIES"]}
+        data={data || []}
+        error={error}
+        loading={loading}
+      />
 
       <HeroSlider items={[img4, img5]} />
 

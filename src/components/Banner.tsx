@@ -14,12 +14,12 @@ const Banner = () => {
           sint. Velit officia consequat duis enim velit mollit. Exercitation
           veniam consequat sunt nostrud amet.
         </p>
-        <p className="mt-4 text-xl text-gray-600 md:mt-8">
+        <div className="mt-4 text-xl text-gray-600 md:mt-8">
           <div className="flex space-x-4">
           <button className="mt-8 inline-flex items-center justify-center rounded-xl bg-pink-500 py-3 px-6 font-dm text-base font-medium text-white shadow-xl shadow-pink-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.02]"> Add to Cart </button>
           <button className="mt-8 inline-flex items-center justify-center rounded-xl bg-blue-600 py-3 px-6 font-dm text-base font-medium text-white shadow-xl shadow-blue-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.02]">Buy Now</button>
           </div>
-        </p>
+        </div>
       </div>
       <div className="relative">
         <img

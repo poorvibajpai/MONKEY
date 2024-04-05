@@ -11,22 +11,23 @@ import productImg from "../assets/category/00495429800-e1.jpg"
 type ProductProps = {
   width?: string;
   imgUrl?: string;
+  data?:ProductType
 }
 
-const ProductCard = ({ width, imgUrl }: ProductProps) => {
+const ProductCard = ({ width, imgUrl,data }: ProductProps) => {
   return (
-    <div className={`rounded-md border w-${width} my-2 h-max`}>
+    <div className={`rounded-md border w-${width} max-w-[23%] my-2 h-max`}>
       <Link to={"/product/1"} className="block overflow-hidden">
         <div className="max-h-[350px] overflow-hidden">
           <img
-            src={imgUrl ? imgUrl : productImg}
+            src={data?.image || imgUrl ? imgUrl : productImg}
             alt="Laptop"
-            className="max-h-[350px] w-full rounded-sm hover-effect hover:scale-x-110 transition-transform duration-1000 ease-in-out cursor-pointer hover:transform hover:scale-110"
+            className="h-[320px] w-full rounded-sm hover-effect hover:scale-x-110 transition-transform duration-1000 ease-in-out cursor-pointer hover:transform hover:scale-110"
           />
         </div>
         <div className="p-4">
-          <h1 className="inline-flex items-center text-lg font-semibold">Monkey X Series</h1>
-          <h1 className='my-2 text-orange-600 font-semibold'>From ₹ 999</h1>
+          <h1 className="inline-flex items-center text-lg font-semibold">{data?.name || "Monkey X Series"}</h1>
+          <h1 className='my-2 text-orange-600 font-semibold'>From ₹ {data?.price || "999"}</h1>
           {/* <button className="w-full bg-black hover:bg-yellow-500 text-white font-semibold hover:text-white py-2 px-4 border border-black hover:border-transparent rounded">
             Buy Now
           </button> */}
