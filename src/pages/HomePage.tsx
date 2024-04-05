@@ -30,6 +30,7 @@ const HomePage = () => {
         data={data || []}
         error={error}
         loading={loading}
+        isPassingData={true}
       />
 
       <HeroSlider items={[img4, img5]} />

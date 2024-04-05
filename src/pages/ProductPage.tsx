@@ -48,8 +48,11 @@ const product = {
 // import CategoryList from "../components/CategoryList";
 
 import Items from "../components/Items";
+import useFetch from "../hooks/useFetch";
 
 export default function ProductPage() {
+
+
   const dispatch = useDispatch();
 
   return (
@@ -216,22 +219,26 @@ export default function ProductPage() {
           </div>
         </div>
       </div>
+      <h1 className="text-3xl my-3 font-serif border-b-2 border-b-zinc-700 inline-block ">Similar Products</h1>
       <Items />
+      <br /><br /><br />
+      <h1 className="text-3xl my-3 font-serif border-b-2 border-b-zinc-700 inline-block ">Customer Reviews & Ratings</h1>
       <hr />
       {/* Similar products
       <CategoryList />
-      <CategoryList /> */}
+    <CategoryList /> */}
 
       {feedback.map((feed, i) => (
         <>
-          <div className="flex items-start" key={i}>
+          <div className="flex items-start my-4" key={i}>
             <div className="flex-shrink-0">
               <div className="inline-block relative">
                 <div className="relative w-16 h-16 rounded-full overflow-hidden">
                   <img
                     className="absolute top-0 left-0 w-full h-full bg-cover object-fit object-cover"
-                    src={`https://picsum.photos/id/${Math.floor(Math.random() * 1000)}/200/200` || "https://picsum.photos/id/646/200/200"}
+                    src={`https://picsum.photos/id/${Math.floor(Math.random() * 1000)}/200/200`}
                     alt="Profile picture"
+                    onError={(e) => e.currentTarget.src = "https://picsum.photos/id/1/200/200"}
                   />
                   <div className="absolute top-0 left-0 w-full h-full rounded-full shadow-inner" />
                 </div>
