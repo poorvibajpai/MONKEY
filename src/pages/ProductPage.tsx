@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux"
 import { addItemInCart } from "../redux/slices/cartSlice";
 
 // import CategoryList from "../components/CategoryList";
-import Review from "../components/Review";
+// import Review from "../components/Review";
 
 // const data = {
 //   title:"",
