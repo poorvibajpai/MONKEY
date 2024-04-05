@@ -1,0 +1,1 @@
+export const BASE_URL = "https://ecommerce-backend-9fpg.onrender.com/api/v1";
