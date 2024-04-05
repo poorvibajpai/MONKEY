@@ -48,7 +48,6 @@ const product = {
 // import CategoryList from "../components/CategoryList";
 
 import Items from "../components/Items";
-import useFetch from "../hooks/useFetch";
 
 export default function ProductPage() {
 
