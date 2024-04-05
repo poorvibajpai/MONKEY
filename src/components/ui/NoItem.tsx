@@ -1,4 +1,3 @@
-import React from 'react'
 import imgurl from "../../assets/no_data_found.jpg"
 const NoItem = () => {
   return (
