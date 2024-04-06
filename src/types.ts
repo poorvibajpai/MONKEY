@@ -11,3 +11,9 @@ type ProductType = {
  sale: boolean;
  richCollection: boolean;
 };
+
+type ApiResponseType = {
+  success:boolean;
+  message:string;
+  data:any;
+}

@@ -89,8 +89,9 @@ interface ItemProps {
   error?: any;
   loading?: boolean
   isPassingData?: boolean
+  defaultValue?: string
 }
-const Items = ({ list, data, error, loading, isPassingData=false }: ItemProps) => {
+const Items = ({ list, data, error, loading, isPassingData = false, defaultValue }: ItemProps) => {
   // if isPassingData == true then show data else show dummy data
   if (!isPassingData) {
     // dummy data
@@ -105,7 +106,7 @@ const Items = ({ list, data, error, loading, isPassingData=false }: ItemProps) =
   }
 
 
-  const [listCategory, setlistCategory] = useState("jackets");
+  const [listCategory, setlistCategory] = useState(defaultValue?.toLowerCase());
   const [filterData, setFilterData] = useState<ProductType[] | null>(null);
   useEffect(() => {
     if (!loading && !error) {
@@ -132,9 +133,9 @@ const Items = ({ list, data, error, loading, isPassingData=false }: ItemProps) =
           <li key={name} onClick={(e: any) => setlistCategory(e.target.innerText.toLowerCase())} className="cursor-pointer text-lg font-semibold">{name}</li>
         )}
       </ul>
-      <div className="flex justify-evenly flex-wrap">
+      <div className="flex flex-wrap justify-evenly">
         {!loading && !error && filterData?.length! > 0 ? filterData?.map((item, i) => (
-          <ProductCard width={"20%"} key={i} imgUrl={item.image} data={item} />
+            <ProductCard width={"24%"} key={i} imgUrl={item.image} data={item} />
         ))
           : <NoItem />
         }

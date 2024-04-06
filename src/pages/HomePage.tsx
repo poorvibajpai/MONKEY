@@ -16,21 +16,23 @@ import img7 from "../assets/Banner05.jpeg"
 import Items from "../components/Items"
 import useFetch from "../hooks/useFetch"
 const HomePage = () => {
-  const {data,error,loading} = useFetch("/products");
+  const { data, error, loading } = useFetch("/products/latest?id=1");
+  const { data:latestData2, error:latestError, loading:latestLoading } = useFetch("/products/latest?id=2");
 
   return (
     <div className="">
       {/* <HeroSlider items={[img1, img2, img3]} /> */}
-      <HeroSlider items={[img1, img2,img3]} />
+      <HeroSlider items={[img1, img2, img3]} />
 
       {/* ------------------ category jacket - sweatshirt - hoodies ------------------- */}
 
-      <Items 
+      <Items
         list={["JACKETS", "SWEATSHIRTS", "HOODIES"]}
         data={data || []}
         error={error}
         loading={loading}
         isPassingData={true}
+        defaultValue="JACKETS"
       />
 
       <HeroSlider items={[img4, img5]} />
@@ -39,19 +41,26 @@ const HomePage = () => {
         showThumbs={false}
         showStatus={false}
       >
-        <div><CategoryList />s</div>
+        <div><CategoryList /></div>
         <div><CategoryList /></div>
 
       </Carousel>
 
       <HeroSlider items={[img6, img7]} />
 
-      <Items />
+      <Items
+        list={["TSHIRTS", "JOGGERS", "SHIRTS"]}
+        data={latestData2 || []}
+        error={latestError}
+        loading={latestLoading}
+        isPassingData={true}
+        defaultValue="TSHIRTS"
+      />
 
-      <AllCategory/>
+      <AllCategory />
       <Video />
       <Items />
-      <BeforeFooter/>
+      <BeforeFooter />
     </div>
   )
 }
