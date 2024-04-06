@@ -1,6 +1,6 @@
 // import React from 'react'
 import { Carousel } from "react-responsive-carousel"
-import Banner from '../components/Banner'
+import Video from '../components/Video'
 //import Carasoul from "../components/Carasoul"
 import CategoryList from "../components/CategoryList"
 import HeroSlider from "../components/HeroSlider"
@@ -40,7 +40,7 @@ const HomePage = () => {
       <Items />
 
       <AllCategory/>
-      <Banner />
+      <Video />
       <Items />
       <BeforeFooter/>
     </div>
