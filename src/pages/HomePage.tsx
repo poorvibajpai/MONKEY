@@ -30,7 +30,7 @@ const HomePage = () => {
         showThumbs={false}
         showStatus={false}
       >
-        <div><CategoryList /></div>
+        <div><CategoryList />s</div>
         <div><CategoryList /></div>
 
       </Carousel>

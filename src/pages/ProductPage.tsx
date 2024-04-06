@@ -1,7 +1,32 @@
+// import React from 'react'
+
+import { useDispatch } from "react-redux"
+import { addItemInCart } from "../redux/slices/cartSlice";
+
+
+// const data = {
+//   title:"",
+//   desc:"",
+//   newPrice:"",
+//   oldPrice:"",
+//   sizes:["S","M","L","XL"],
+//   colors:['bg-orange-400', 'bg-pink-400', 'bg-violet-600', 'bg-red-500'],
+// }
+
+const product = {
+  productId:"1",
+  name:"nike",
+  unitPrice:40,
+  quantity:2,
+  totalQuantity:10
+}
+// import CategoryList from "../components/CategoryList";
 
 import Items from "../components/Items";
 
 export default function ProductPage() {
+  const dispatch = useDispatch();
+
   return (
     <div className="mx-auto max-w-7xl px-4 md:px-8 2xl:px-16">
       <div className="block grid-cols-9 items-start gap-x-10 pb-10 pt-7 lg:grid lg:pb-14 xl:gap-x-14 2xl:pb-20">
@@ -73,16 +98,17 @@ export default function ProductPage() {
                 className="text-heading hover:bg-heading flex h-full w-10 flex-shrink-0 items-center justify-center border-e border-gray-300 transition duration-300 ease-in-out focus:outline-none md:w-12"
                 disabled
               >
-                +
+                -
               </button>
               <span className="duration-250 text-heading flex h-full w-12  flex-shrink-0 cursor-default items-center justify-center text-base font-semibold transition-colors ease-in-out  md:w-20 xl:w-24">
                 1
               </span>
               <button className="text-heading hover:bg-heading flex h-full w-10 flex-shrink-0 items-center justify-center border-s border-gray-300 transition duration-300 ease-in-out focus:outline-none md:w-12">
-                -
+                +
               </button>
             </div>
             <button
+            onClick={() => dispatch(addItemInCart(product))}
               type="button"
               className="h-11 w-full rounded-md  bg-red-600 py-3 px-6 font-dm text-base font-medium text-white shadow-xl shadow-red-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.02]"> 
               Add to cart

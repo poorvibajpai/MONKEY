@@ -1,3 +1,19 @@
+.menu-links::after{
+  content: '';
+  width: 0%;
+  display: block;
+  background-color: white;
+  height: 2px;
+  transition: all 1s;
+  margin-top: 5px;
+}
+.menu-links.active::after {
+  width: 100%;
+}
+.menu-links:hover::after{
+  width: 100%;
+}
+
 .hover-effect:hover{
   animation-name: fadeInOpacity;
   animation-iteration-count: 1;
@@ -12,4 +28,17 @@
     opacity: 1;
   }
 }
+.cart-count{
+  animation: shake 0.7s infinite alternate;
+}
 
+@keyframes shake {
+  0% {
+      top:-16px;
+
+  }
+  100% {
+      top:-13px;
+  }
+  
+}
