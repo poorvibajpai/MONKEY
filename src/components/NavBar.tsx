@@ -47,7 +47,7 @@ const NavBar = ({ navItems }: { navItems: NavItems[] }) => {
               <li key={item.name}>
                 <NavLink
                   to={item.to}
-                  className={`menu-links text-base font-semibold ${item.name == "Sale" ? "text-red-300 hover:text-red-400" : "text-white hover:text-white"} `}
+                  className={`menu-links text-base font-semibold ${item.name == "Sale" ? "text-red-500 hover:text-lime-500" : "text-white hover:text-white"} `}
                   // className={`text-base font-semibold ${item.name == "Sale" ? "text-red-500 hover:text-red-600" : "text-white hover:text-yellow-500"}  `}
                 >
                   {item.name}
