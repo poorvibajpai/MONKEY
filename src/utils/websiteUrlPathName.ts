@@ -16,10 +16,6 @@
     to: '/collections/womens',
   },
   {
-    name: 'Sale',
-    to: '/collections/sale',
-  },
-  {
     name: 'Rich Collection',
     to: '/collections/rich-collection',
   },

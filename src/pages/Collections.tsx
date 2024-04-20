@@ -19,9 +19,6 @@ const Collections = () => {
       heading = "Monkey Women"
       url += "women";
       break
-    // case "sale":
-    //   heading = "Sale ends in 5 days"
-    //   break
     case "rich-collection":
       heading = "Rich Collection"
       url += "customized";
@@ -33,7 +30,7 @@ const Collections = () => {
   }
   const { data, error, loading }: { data: ProductType[], error: any, loading: boolean } = useFetch(url);
   if (error) {
-    return <NoItem/>
+    return <NoItem />
   }
   return (
     <div className="mb-28">
@@ -48,10 +45,9 @@ const Collections = () => {
           {loading && Array.from({ length: 8 }).map((_, i) => (
             <ProductSkeleton key={i} />
           ))}
-
           {
-           !loading && !error &&  data.length > 0 ? data.map((item, i) => (
-              <ProductCard width={"20%"} key={i} imgUrl={item.image} data={item} />
+            !loading && !error &&  data.length > 0 ? data.map((item, i) => (
+             <ProductCard width={"20%"} key={i} imgUrl={item.image} data={item} />
             )) : <NoItem/>
           }
 

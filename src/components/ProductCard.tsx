@@ -14,9 +14,9 @@ type ProductProps = {
   data?: ProductType
 }
 
-const ProductCard = ({ width, imgUrl, data }: ProductProps) => {
+const ProductCard = ({ width, imgUrl, data ,}: ProductProps) => {
   return (
-    <div className={`rounded-md border w-[${width}] my-2 h-max max-w-[25%]`}>
+    <div className={`rounded-md border w-[${width}] my-2 h-max w-max-[23%]`}>
       <Link to={`/product/${data?._id}`} className="block overflow-hidden">
         <div className="max-h-[350px] overflow-hidden">
           <img

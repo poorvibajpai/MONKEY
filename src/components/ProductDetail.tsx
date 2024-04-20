@@ -1,5 +1,5 @@
 import useFetch from "../hooks/useFetch";
-import { Navigate, useParams } from "react-router-dom";
+import { Link, Navigate, useParams } from "react-router-dom";
 import Loader from "../components/ui/Loader";
 import { useDispatch } from "react-redux"
 import { addItemInCart } from "../redux/slices/cartSlice";
@@ -23,8 +23,8 @@ export default function ProductDetail() {
     return <Loader />
   }
   if (error || !data) {
-    return <NoItem/>
-    
+    return <NoItem />
+
   }
   return (
     <div className="block grid-cols-9 items-start gap-x-10 pb-10 pt-7 lg:grid lg:pb-14 xl:gap-x-14 2xl:pb-20">
@@ -52,7 +52,7 @@ export default function ProductDetail() {
               {data?.price}
             </div>
             <span className="font-segoe pl-2 text-sm text-gray-400 line-through md:text-base lg:text-lg xl:text-xl">
-              {data?.oldPrice || data.price+2500}
+              {data?.oldPrice || data.price + 2500}
             </span>
           </div>
         </div>
@@ -90,6 +90,13 @@ export default function ProductDetail() {
                   <span className={`block h-full w-full rounded ${color}`} />
                 </li>
               ))}
+              {data.subCategory == "customized" && <li>
+                <Link to={"/custom"}
+                  className="block w-full rounded-md  bg-blue-500 py-3 px-6 font-dm text-base font-semibold text-white shadow-xl shadow-blue-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.0]">
+                  Customize Your Own
+                </Link>
+              </li>
+              }
             </ul>
           </div>
         </div>
