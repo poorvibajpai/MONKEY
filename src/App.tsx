@@ -14,13 +14,13 @@ import Loader from './components/ui/Loader';
 
 function App() {
   const location = useLocation();
-  // fetch("http://localhost/codeigniter/admin/product/fetchProduct", {
-  //   method: "GET",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //     "Authorization": "fsdkfdsfjsdklfksljfskdjf"
-  //   }
-  // })
+  fetch("http://localhost/codeigniter/admin/product/fetchProduct", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": "fsdkfdsfjsdklfksljfskdjf"
+    }
+  })
 
   return (
     <>
