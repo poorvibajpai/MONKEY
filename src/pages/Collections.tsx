@@ -46,9 +46,12 @@ const Collections = () => {
             <ProductSkeleton key={i} />
           ))}
           {
-            !loading && !error &&  data.length > 0 ? data.map((item, i) => (
+            !loading && !error &&  data.length > 0 && data.map((item, i) => (
              <ProductCard width={"20%"} key={i} imgUrl={item.image} data={item} />
-            )) : <NoItem/>
+            ))
+          }
+          {
+            !loading && error &&  <NoItem/>
           }
 
         </main>
