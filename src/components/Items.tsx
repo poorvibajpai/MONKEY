@@ -16,83 +16,129 @@ import img12 from "../assets/category/07545350802-e1.jpg"
 import img13 from "../assets/category/06318411800-e1.jpg"
 import img14 from "../assets/category/04576921102-e1.jpg"
 import img15 from "../assets/category/04231426485-e1.jpg"
+import ProductSkeleton from "./ui/ProductSkeleton"
+import NoItem from "./ui/NoItem"
+import { useEffect, useState } from "react"
 
-const data = [
+const tempData = [
   {
-    imgUrl:img1,
-    price:"499"
+    imgUrl: img1,
+    price: "499"
   },
   {
-    imgUrl:img2,
-    price:"999"
+    imgUrl: img2,
+    price: "999"
   },
   {
-    imgUrl:img3,
-    price:"1599"
+    imgUrl: img3,
+    price: "1599"
   },
   {
-    imgUrl:img4,
-    price:"499"
-  }, 
-  {
-    imgUrl:img5,
-    price:"999"
+    imgUrl: img4,
+    price: "499"
   },
   {
-    imgUrl:img6,
-    price:"999"
+    imgUrl: img5,
+    price: "999"
   },
   {
-    imgUrl:img7,
-    price:"1199"
+    imgUrl: img6,
+    price: "999"
   },
   {
-    imgUrl:img8,
-    price:"499"
+    imgUrl: img7,
+    price: "1199"
   },
   {
-    imgUrl:img9,
-    price:"899"
+    imgUrl: img8,
+    price: "499"
   },
   {
-    imgUrl:img10,
-    price:"999"
+    imgUrl: img9,
+    price: "899"
   },
   {
-    imgUrl:img11,
-    price:"499"
+    imgUrl: img10,
+    price: "999"
   },
   {
-    imgUrl:img12,
-    price:"999"
+    imgUrl: img11,
+    price: "499"
   },
   {
-    imgUrl:img13,
-    price:"1599"
+    imgUrl: img12,
+    price: "999"
   },
   {
-    imgUrl:img14,
-    price:"499"
-  }, 
+    imgUrl: img13,
+    price: "1599"
+  },
   {
-    imgUrl:img15,
-    price:"999"
+    imgUrl: img14,
+    price: "499"
+  },
+  {
+    imgUrl: img15,
+    price: "999"
   },
 ]
 
-const Items = ({ list }: { list?: string[] }) => {
+interface ItemProps {
+  list?: string[];
+  data?: ProductType[];
+  error?: any;
+  loading?: boolean
+  isPassingData?: boolean
+  defaultValue?: string
+}
+const Items = ({ list, data, error, loading, isPassingData = false, defaultValue }: ItemProps) => {
+  // if isPassingData == true then show data else show dummy data
+  if (!isPassingData) {
+    // dummy data
+    return (
+      <div className="flex justify-evenly flex-wrap">
+        {tempData.map((item, i) => (
+          <ProductCard width={"20%"} key={i} imgUrl={item.imgUrl} />
+        ))
+        }
+      </div>
+    )
+  }
+
+
+  const [listCategory, setlistCategory] = useState(defaultValue?.toLowerCase());
+  const [filterData, setFilterData] = useState<ProductType[] | null>(null);
+  useEffect(() => {
+    if (!loading && !error) {
+      setFilterData(data?.filter((item) => item.category == listCategory) || null)
+    }
+  }, [loading, error, listCategory])
+
+  if (loading) {
+    return (
+      <div className="flex justify-evenly flex-wrap my-10">
+        {Array.from({ length: 8 }).map((_, i) => (
+          <ProductSkeleton key={i} />
+        ))}
+
+      </div>
+    )
+  }
+
+
   return (
     <div className="my-10">
       <ul className="flex w-full my-10 justify-center space-x-5">
         {list?.map((name) =>
-          <li key={name} className="cursor-pointer text-lg font-semibold">{name}</li>
+          <li key={name} onClick={(e: any) => setlistCategory(e.target.innerText.toLowerCase())} className="cursor-pointer text-lg font-semibold">{name}</li>
         )}
       </ul>
-      <div className="flex justify-evenly flex-wrap">
-        {data.map((item, i) => (
-          <ProductCard width={"20%"} key={i} imgUrl={item.imgUrl} />
-        ))}
-
+      <div className="flex flex-wrap justify-evenly">
+        {!loading && !error && filterData?.length! > 0 ? filterData?.map((item, i) => (
+            <ProductCard width={"24%"} key={i} imgUrl={item.image} data={item} />
+        ))
+          : <NoItem />
+        }
       </div>
     </div>
   )
