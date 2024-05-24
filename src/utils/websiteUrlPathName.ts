@@ -20,7 +20,7 @@
     to: '/collections/rich-collection',
   },
   {
-    name: 'Get in Touch',
+    name: 'About Us',
     to: '/contact-us',
   },
 ]
