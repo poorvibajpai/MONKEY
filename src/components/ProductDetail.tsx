@@ -1,9 +1,10 @@
 import useFetch from "../hooks/useFetch";
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import Loader from "../components/ui/Loader";
 import { useDispatch } from "react-redux"
 import { addItemInCart } from "../redux/slices/cartSlice";
 import NoItem from "./ui/NoItem";
+import Question from "./ui/Question";
 
 const product = {
   productId: "1",
@@ -56,7 +57,7 @@ export default function ProductDetail() {
             </span>
           </div>
         </div>
-        <div className="border-b border-gray-300 pb-3  ">
+        <div className="border-b border-grey-500 pb-3  ">
           <div className="mb-4">
             <h3 className="text-heading mb-2.5 text-base font-semibold capitalize md:text-lg">
               size
@@ -65,38 +66,11 @@ export default function ProductDetail() {
               {["S", "M", "L", "XL"].map((size) => (
                 <li
                   key={size}
-                  className="text-heading mb-2 mr-2 flex h-9 w-9 cursor-pointer items-center justify-center rounded border border-gray-100 p-1 text-xs font-semibold uppercase transition duration-200 ease-in-out hover:border-black md:mb-3 md:mr-3 md:h-11 md:w-11 md:text-sm "
+                  className="text-heading mb-2 mr-2 flex h-9 w-9 cursor-pointer items-center justify-center rounded border border-black p-1 text-xs font-semibold uppercase transition duration-200 ease-in-out hover:border-black md:mb-3 md:mr-3 md:h-11 md:w-11 md:text-sm "
                 >
                   {size}
                 </li>
               ))}
-            </ul>
-          </div>
-          <div className="mb-4 ">
-            <h3 className="text-heading mb-2.5 text-base font-semibold capitalize md:text-lg">
-              color
-            </h3>
-            <ul className="colors -mr-3 flex flex-wrap">
-              {[
-                "bg-orange-400",
-                "bg-pink-400",
-                "bg-violet-600",
-                "bg-red-500",
-              ].map((color) => (
-                <li
-                  key={color}
-                  className="text-heading mb-2 mr-2 flex h-9 w-9 cursor-pointer items-center justify-center rounded border border-gray-100 p-1 text-xs font-semibold uppercase transition duration-200 ease-in-out hover:border-black md:mb-3 md:mr-3 md:h-11 md:w-11 md:text-sm"
-                >
-                  <span className={`block h-full w-full rounded ${color}`} />
-                </li>
-              ))}
-              {data.subCategory == "customized" && <li>
-                <Link to={"/custom"}
-                  className="block w-full rounded-md  bg-blue-500 py-3 px-6 font-dm text-base font-semibold text-white shadow-xl shadow-blue-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.0]">
-                  Customize Your Own
-                </Link>
-              </li>
-              }
             </ul>
           </div>
         </div>
@@ -115,37 +89,43 @@ export default function ProductDetail() {
               +
             </button>
           </div>
-          <button
+        </div>
+        <div className="flex justify-center space-x-3">
+      <button
             onClick={() => dispatch(addItemInCart(product))}
             type="button"
             className="h-11 w-full rounded-md  bg-red-600 py-3 px-6 font-dm text-base font-medium text-white shadow-xl shadow-red-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.02]">
-            Add to cart
+            Add to Watchlist
           </button>
-        </div>
+          <button
+            onClick={() => dispatch(addItemInCart(product))}
+            type="button"
+            className="h-11 w-full rounded-md  bg-yellow-800 py-3 px-6 font-dm text-base font-medium text-white shadow-xl shadow-yellow-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.02]">
+            Add to Cart
+          </button>
+      </div>
         <div className="shadow-sm ">
           <header className="flex cursor-pointer items-center justify-between border-t border-gray-300 py-5 transition-colors md:py-6">
             <h2 className="text-heading pr-2 text-sm font-semibold leading-relaxed md:text-base lg:text-lg">
-              Product Details
+              Product Rating
             </h2>
             <div className="relative flex h-4 w-4 flex-shrink-0 items-center justify-center">
               <div className="bg-heading h-0.5 w-full rounded-sm" />
               <div className="bg-heading absolute bottom-0 h-full w-0.5 origin-bottom scale-0 transform rounded-sm transition-transform duration-500 ease-in-out" />
             </div>
           </header>
-          <div>
-            <div className="pb-6 text-sm leading-7 text-gray-600 md:pb-7">
-              Our Customer Experience Team is available 7 days a week and we
-              offer 2 ways to get in contact.Email and Chat . We try to reply
-              quickly, so you need not to wait too long for a response!.
-            </div>
-          </div>
         </div>
-        <div className="">
-          <header className="flex cursor-pointer items-center justify-between border-t border-gray-300 py-5 transition-colors md:py-6">
-            <h2 className="text-heading pr-2 text-sm font-semibold leading-relaxed md:text-base lg:text-lg">
-              Additional Information
-            </h2>
-          </header>
+        <Question />
+        <div>
+                        <br></br>
+        <h1 className="flex items-center justify-center font-large">100% secure Payment</h1>
+        <br></br>
+        <div className="flex items-center space-x-6">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShFa35_j_0an5VqFj5aYhScHBOv-Cx1CrUmO7nvK2_Jw&s" alt="UPI" className="h-8 w-auto"/>
+    <img src="https://w7.pngwing.com/pngs/345/591/png-transparent-phonepe-hd-logo.png" alt="UPI" className="h-8 w-auto"/>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRB8h1fM04EJwtrOLZdZx1wE7_ye3pIwp8T82FWnm8j&s" alt="Credit Card" className="h-8 w-auto"/>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLbQ6m1CMvg3-4eAzXtExE1qmsQqoEEkjblV9XG3xvPQ&s" alt="Mastercard" className="h-8 w-auto"/>
+</div>
         </div>
       </div>
     </div>

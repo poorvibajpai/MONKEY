@@ -38,6 +38,7 @@ function App() {
               }
             </Routes>
           </section>
+          <br></br>
           <Footer />
         </>
 // main website routes
