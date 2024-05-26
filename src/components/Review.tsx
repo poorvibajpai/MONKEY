@@ -27,8 +27,8 @@ const Review = () => {
       <h1 className="text-3xl my-3 font-serif border-b-2 border-b-zinc-700 inline-block ">Customer Reviews & Ratings</h1>
       <hr />
       {feedback.map((feed, i) => (
-        <>
-          <div className="flex items-start my-4" key={i}>
+        <div key={i}>
+          <div className="flex items-start my-4">
             <div className="flex-shrink-0">
               <div className="inline-block relative">
                 <div className="relative w-16 h-16 rounded-full overflow-hidden">
@@ -221,7 +221,7 @@ const Review = () => {
           <br />
           <br />
           <hr />
-        </>
+        </div>
       ))
       }
       <>

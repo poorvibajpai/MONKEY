@@ -1,27 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 type initialStateType = {
- cartItems: Array<any>;
+ cartItems: CartItemType[];
 };
 
 const initialState: initialStateType = {
- cartItems: [],
+ cartItems: JSON.parse(localStorage.getItem("cartItem") || "[]") as CartItemType[],
 };
 
 const cartSlice = createSlice({
  name: "cart",
  initialState,
  reducers: {
-  addItemInCart: (state, action) => {
-    const index = state.cartItems.findIndex((item)=> item.id == action.payload.id)
-    if (index != -1) {
-      state.cartItems[Number(index)].quantity += 1;
-   } else {
-    state.cartItems?.push(action.payload);
-   }
-  },
+
+    updateCart:(state)=>{
+      state.cartItems = JSON.parse(localStorage.getItem("cartItem") || "[]") as CartItemType[]
+    }
  },
 });
 
 export default cartSlice.reducer;
-export const { addItemInCart } = cartSlice.actions;
+export const { updateCart } = cartSlice.actions;

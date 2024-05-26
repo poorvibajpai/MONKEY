@@ -1,9 +1,12 @@
-import useFetch from "../hooks/useFetch";
+import { useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import Loader from "../components/ui/Loader";
-import { useDispatch } from "react-redux"
-import { addItemInCart } from "../redux/slices/cartSlice";
+import useFetch from "../hooks/useFetch";
+import { addToCart } from "../utils/service";
 import NoItem from "./ui/NoItem";
+import toast from "react-hot-toast";
+import { useDispatch } from "react-redux";
+import { updateCart } from "../redux/slices/cartSlice";
 
 const product = {
   productId: "1",
@@ -13,7 +16,9 @@ const product = {
   totalQuantity: 10
 }
 export default function ProductDetail() {
+  const [quantity , setQyantity] = useState(1);
   const dispatch = useDispatch();
+
   const { id } = useParams();
   if (id == "undefined") {
     return <Navigate to="/" />
@@ -25,6 +30,25 @@ export default function ProductDetail() {
   if (error || !data) {
     return <NoItem />
 
+  }
+
+  const addQyantity = () => {
+    if(quantity >= 10 ){
+      toast.error("Maximum 10 item per order");
+      return
+    }
+    setQyantity(quantity + 1);
+  }
+  const subQuantity = () => {
+    if(quantity > 1){
+      setQyantity(quantity - 1);
+    }
+
+  }
+
+  const handleCart = ()=>{
+    addToCart({...data,quantity});
+    dispatch(updateCart())
   }
   return (
     <div className="block grid-cols-9 items-start gap-x-10 pb-10 pt-7 lg:grid lg:pb-14 xl:gap-x-14 2xl:pb-20">
@@ -104,19 +128,20 @@ export default function ProductDetail() {
           <div className="group flex h-11 flex-shrink-0 items-center justify-between overflow-hidden rounded-md border border-gray-300 md:h-12">
             <button
               className="text-heading hover:bg-heading flex h-full w-10 flex-shrink-0 items-center justify-center border-e border-gray-300 transition duration-300 ease-in-out focus:outline-none md:w-12"
-              disabled
+              disabled = {quantity == 1}
+              onClick={subQuantity}
             >
               -
             </button>
             <span className="duration-250 text-heading flex h-full w-12  flex-shrink-0 cursor-default items-center justify-center text-base font-semibold transition-colors ease-in-out  md:w-20 xl:w-24">
-              1
+              {quantity}
             </span>
-            <button className="text-heading hover:bg-heading flex h-full w-10 flex-shrink-0 items-center justify-center border-s border-gray-300 transition duration-300 ease-in-out focus:outline-none md:w-12">
+            <button onClick={addQyantity} className="text-heading hover:bg-heading flex h-full w-10 flex-shrink-0 items-center justify-center border-s border-gray-300 transition duration-300 ease-in-out focus:outline-none md:w-12">
               +
             </button>
           </div>
           <button
-            onClick={() => dispatch(addItemInCart(product))}
+            onClick={handleCart}
             type="button"
             className="h-11 w-full rounded-md  bg-red-600 py-3 px-6 font-dm text-base font-medium text-white shadow-xl shadow-red-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.02]">
             Add to cart

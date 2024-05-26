@@ -12,6 +12,10 @@ type ProductType = {
  richCollection: boolean;
 };
 
+type CartItemType = ProductType & {
+  quantity?: number;
+}
+
 type ApiResponseType = {
   success:boolean;
   message:string;

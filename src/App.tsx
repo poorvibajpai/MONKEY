@@ -10,6 +10,7 @@ import adminRoutes from './routes/adminRoutes'
 import websiteUrlPathName from './utils/websiteUrlPathName'
 import adminUrlPathname from './utils/adminUrlPathname'
 import Loader from './components/ui/Loader';
+import { Toaster } from 'react-hot-toast';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
 
   return (
     <>
+      <Toaster position='top-center'/>
       {location.pathname.includes('admin') ?
         <>
           <nav className='fixed top-0 left-0 z-50 w-full'>
@@ -40,22 +42,22 @@ function App() {
           </section>
           <Footer />
         </>
-// main website routes
+        // main website routes
         : <>
           <nav className='fixed top-0 left-0 z-50 w-full'>
             <NavBar navItems={websiteUrlPathName} />
           </nav>
           <section className='relative top-[78px] p-5 min-h-screen'>
-            
+
             <Routes>
               {
                 websiteRoutes.map(({ path, element: Element }) =>
                   <Route path={path} element={
-                    <Suspense fallback={<Loader/>
+                    <Suspense fallback={<Loader />
                     }>
                       <Element />
                     </Suspense>
-                  }key={path} />
+                  } key={path} />
                 )
               }
               <Route path='*' element={<HomePage />} />
