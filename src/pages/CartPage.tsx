@@ -34,6 +34,10 @@ const CartPage = () => {
   }
 
   const checkoutHandler = () => {
+    if(cartItems.length == 0){
+      toast.error("Cart is empty please add some items");
+      return;
+    }
     setOpenModal(true)
   }
 

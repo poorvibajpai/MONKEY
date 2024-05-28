@@ -1,11 +1,11 @@
-import { ShoppingCart } from 'lucide-react'
-import MyInput from './ui/MyInput'
-import { FormEvent, useState } from 'react'
 import { loadStripe } from '@stripe/stripe-js';
-import { useSelector } from 'react-redux';
 import axios from 'axios';
+import { ShoppingCart } from 'lucide-react';
+import { FormEvent, useState } from 'react';
 import toast from 'react-hot-toast';
+import { useSelector } from 'react-redux';
 import { SESSION_ID_GENERATE_URL } from '../utils/constants';
+import MyInput from './ui/MyInput';
 
 const stripePromise = loadStripe('pk_test_51PFLVeSCb04hw5xSVk7GnEoAz1aFh4UjHmSvUVoVh50vJCnQNr2q9gW3EbahVdx9aW1fUPPOMqTw3jvbIrnYsvG100W7qOzMJK');
 
@@ -50,8 +50,6 @@ const AddressForm = ({ closeModal }: Props) => {
         console.error('Stripe checkout error:', error);
         toast.error("Payment Failed please try again");
       }
-
-      toast.success("Order placed successfully");
     } catch (error) {
       toast.error("Payment Failed please try again");
     }

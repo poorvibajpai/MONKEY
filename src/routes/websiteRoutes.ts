@@ -1,4 +1,5 @@
 import { lazy } from "react";
+import CheckoutSuccess from "../pages/CheckoutSuccess";
 
 const Collections = lazy(() => import("../pages/Collections"));
 const ContactPage = lazy(() => import("../pages/ContactPage"));
@@ -43,6 +44,10 @@ const websiteRoutes = [
  {
   path: "/custom",
   element: CustomProductPage,
+ },
+ {
+  path: "/success-payment",
+  element: CheckoutSuccess,
  },
 ];
 
