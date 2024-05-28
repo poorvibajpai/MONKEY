@@ -21,3 +21,9 @@ type ApiResponseType = {
   message:string;
   data:any;
 }
+
+type UserInfo = {
+  userId: string;
+  email: string;
+  idToken: string;
+};

@@ -10,6 +10,7 @@ const CheckoutSuccess = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const {sessionId} = useParams();
+  console.log(sessionId)
   const [isLoading, setIsLoading] = useState(true);
   const [isSuccess, setIsSuccess] = useState(false);
 

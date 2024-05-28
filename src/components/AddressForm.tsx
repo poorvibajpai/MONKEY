@@ -11,10 +11,12 @@ const stripePromise = loadStripe('pk_test_51PFLVeSCb04hw5xSVk7GnEoAz1aFh4UjHmSvU
 
 type Props = {
   closeModal: () => void
+  totalQuantity:number
+  totalPrice:number
 }
 
 
-const AddressForm = ({ closeModal }: Props) => {
+const AddressForm = ({ closeModal,totalPrice,totalQuantity }: Props) => {
   const cartItem = useSelector((state: any) => state.cart.cartItems) as CartItemType[]
 
   const [formdata, setFormData] = useState({
@@ -72,7 +74,7 @@ const AddressForm = ({ closeModal }: Props) => {
             </div>
             <div className="flex flex-1">
               <p className="text-sm font-medium">
-                You have <strong>4</strong> items in cart. Sub total is <strong>₹10,000</strong>
+                You have <strong>{totalQuantity}</strong> items in cart. Sub total is <strong>₹{totalPrice}</strong>
               </p>
             </div>
           </div>

@@ -1,12 +1,23 @@
 // import { database, provider } from '../Firebase';
 // import { createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import { FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { signUpWithEmailPassword } from '../utils/services';
 
 const SignUpPage: React.FC = () => {
   // const history = useNavigate();
+  const [formData, setFormData] = useState({ email: "", password: "" });
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
   // const handelSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  const handelSubmit = () => {
+  const handelSubmit = async(e:FormEvent) => {
+    e.preventDefault();
+    await signUpWithEmailPassword(formData.email,formData.password)
     // e.preventDefault();
     // const email: string = e.currentTarget.email.value;
     // const password: string = e.currentTarget.password.value;
@@ -47,9 +58,9 @@ const SignUpPage: React.FC = () => {
             Sign In
           </Link>
         </p>
-        <form onSubmit={() => handelSubmit()} className="mt-8">
+        <form onSubmit={handelSubmit} className="mt-8">
           <div className="space-y-5">
-            <div>
+            {/* <div>
               <label htmlFor="" className="text-base font-medium text-gray-900">
                 Name
               </label>
@@ -62,7 +73,7 @@ const SignUpPage: React.FC = () => {
                   required
                 />
               </div>
-            </div>
+            </div> */}
             <div>
               <label htmlFor="" className="text-base font-medium text-gray-900">
                 Email address
@@ -72,6 +83,8 @@ const SignUpPage: React.FC = () => {
                   className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   type="email"
                   name='email'
+                  onChange={handleChange}
+                  value={formData.email}
                   placeholder="Email"
                   required
                 />
@@ -88,6 +101,8 @@ const SignUpPage: React.FC = () => {
                   className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   type="password"
                   name='password'
+                  onChange={handleChange}
+                  value={formData.password}
                   placeholder="Password"
                   required
                 />

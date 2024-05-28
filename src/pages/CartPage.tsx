@@ -174,7 +174,7 @@ const CartPage = () => {
 
               <MyButton onClick={checkoutHandler}>Checkout ₹ {finalPrice} </MyButton>
               <MyModal open={openModal} onClose={closeModal}>
-                <AddressForm closeModal={closeModal}/>
+                <AddressForm closeModal={closeModal} totalPrice={finalPrice} totalQuantity={totalItemQuantity}/>
               </MyModal>
             </div>
           </section>

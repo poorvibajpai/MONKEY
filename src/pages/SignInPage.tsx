@@ -1,27 +1,33 @@
-// import { database, provider } from '../Firebase';
-// import { createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
-import { Link } from 'react-router-dom';
+import { FormEvent, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { signInWithEmailPassword } from '../utils/services';
+import { useDispatch } from 'react-redux';
+import { setUser } from '../redux/slices/userSlice';
 
 const SigninPage: React.FC = () => {
-  // const history = useNavigate();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [formData, setFormData] = useState({ email: "", password: "" });
 
-  // const handelSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  const handelSubmit = () => {
-    // e.preventDefault();
-    // const email: string = (e.target as HTMLFormElement).email.value;
-    // const password: string = (e.target as HTMLFormElement).password.value;
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-    // createUserWithEmailAndPassword(database, email, password).then((data) => {
-    //   console.log(data, "authData");
-    //   history('/home');
-    // });
+  const handelSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    const resp = await signInWithEmailPassword(formData.email, formData.password)
+    if(resp){
+      console.log(resp)
+      dispatch(setUser(resp))
+      navigate("/")
+    }
   };
 
   const handelClick = () => {
-    // signInWithPopup(database, provider).then((data) => {
-    //   console.log(data, "authData");
-    //   history('/Home');
-    // });
+   
   };
 
   return (
@@ -35,7 +41,7 @@ const SigninPage: React.FC = () => {
           />
         </div>
         <h2 className="text-center text-2xl font-bold leading-tight text-black">
-          Create your account
+          Login To Your Account
         </h2>
         <p className="mt-2 text-center text-sm text-gray-600 ">
           Don't Have an account ?{" "}
@@ -47,7 +53,7 @@ const SigninPage: React.FC = () => {
             Sign UP
           </Link>
         </p>
-        <form onSubmit={() => handelSubmit()} className="mt-8">
+        <form onSubmit={handelSubmit} className="mt-8">
           <div className="space-y-5">
             <div>
               <label htmlFor="" className="text-base font-medium text-gray-900">
@@ -58,6 +64,8 @@ const SigninPage: React.FC = () => {
                   className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   type="email"
                   name='email'
+                  onChange={handleChange}
+                  value={formData.email}
                   placeholder="Email"
                   required
                 />
@@ -74,6 +82,8 @@ const SigninPage: React.FC = () => {
                   className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   type="password"
                   name='password'
+                  onChange={handleChange}
+                  value={formData.password}
                   placeholder="Password"
                   required
                 />
@@ -81,9 +91,10 @@ const SigninPage: React.FC = () => {
             </div>
             <div>
               <button
+                type='submit'
                 className="inline-flex w-full items-center justify-center rounded-md bg-yellow-500 px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-red-500 /80"
               >
-                Get started
+                Sign In
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -91,9 +102,9 @@ const SigninPage: React.FC = () => {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   className="ml-2"
                 >
                   <line x1="5" y1="12" x2="19" y2="12"></line>
