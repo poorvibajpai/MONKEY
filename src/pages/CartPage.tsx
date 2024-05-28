@@ -1,273 +1,283 @@
-// import React from 'react'
-import img1 from '../assets/all-Categories/monkey_allCategories1.jpeg'
-import img2 from '../assets/all-Categories/monkey_allCategories6.jpeg'
-
+import { Trash } from 'lucide-react';
+import { useState } from 'react';
+import toast from 'react-hot-toast';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import AddressForm from '../components/AddressForm';
+import MyButton from '../components/ui/MyButton';
+import MyModal from '../components/ui/MyModal';
+import { addItemToCart, removeItemFromCart } from '../redux/slices/cartSlice';
 
 const CartPage = () => {
+  const [openModal, setOpenModal] = useState(false)
+
+  const dispatch = useDispatch();
+
+  const cartItems = useSelector((state: any) => state.cart.cartItems) as CartItemType[];
+  const totalItemQuantity = cartItems.reduce((acc, curr) => acc = acc + curr.quantity!, 0)
+  const totalPriceWithoutDiscount = cartItems.reduce((acc, curr) => acc = acc + ((curr.price + 1500) * curr.quantity!), 0)
+  const totalDiscountPrice = totalPriceWithoutDiscount - cartItems.reduce((acc, curr) => acc = acc + (curr.price * curr.quantity!), 0)
+  const finalPrice = totalPriceWithoutDiscount - totalDiscountPrice
+
+  const addQyantity = (product: CartItemType) => {
+    if (product.quantity! >= 10) {
+      toast.error("Maximum 10 item per order");
+      return
+    }
+    dispatch(addItemToCart({ ...product, quantity: product.quantity! + 1 }))
+  }
+  const subQuantity = (product: CartItemType) => {
+    if (product.quantity! > 1) {
+      dispatch(addItemToCart({ ...product, quantity: product.quantity! - 1 }))
+    }
+
+  }
+
+  const checkoutHandler = () => {
+    setOpenModal(true)
+  }
+
+  const closeModal = () => {
+    setOpenModal(false)
+  }
   return (
-    <div>
-      <div className="py-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto">
-        <div className="flex justify-start item-start space-y-2 flex-col">
-          <h1 className="text-3xl dark:text-white lg:text-4xl font-semibold leading-7 lg:leading-9 text-gray-800">
-            Order #13432
-          </h1>
-          <p className="text-base dark:text-gray-300 font-medium leading-6 text-gray-600">
-            21st Mart 2021 at 10:34 PM
-          </p>
-        </div>
-        <div className="mt-10 flex flex-col xl:flex-row jusitfy-center items-stretch w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0">
-          <div className="flex flex-col justify-start items-start w-full space-y-4 md:space-y-6 xl:space-y-8">
-            <div className="flex flex-col justify-start items-start dark:bg-gray-800 bg-gray-50 px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full">
-              <p className="text-lg md:text-xl dark:text-white font-semibold leading-6 xl:leading-5 text-gray-800">
-                Customer’s Cart
-              </p>
-              <div className="mt-4 md:mt-6 flex flex-col md:flex-row justify-start items-start md:items-center md:space-x-6 xl:space-x-8 w-full">
-                <div className="pb-4 md:pb-8 w-full md:w-40">
-                  <img
-                    className="w-full hidden md:block"
-                    src={img1}
-                    alt="dress"
-                  />
-                  <img
-                    className="w-full md:hidden"
-                    src={img1}
-                    alt="dress"
-                  />
-                </div>
-                <div className="border-b border-gray-200 md:flex-row flex-col flex justify-between items-start w-full pb-8 space-y-4 md:space-y-0">
-                  <div className="w-full flex flex-col justify-start items-start space-y-8">
-                    <h3 className="text-xl dark:text-white xl:text-2xl font-semibold leading-6 text-gray-800">
-                      Monkey Tshirt
-                    </h3>
-                    <div className="flex justify-start items-start flex-col space-y-2">
-                      <p className="text-sm dark:text-white leading-none text-gray-800">
-                        <span className="dark:text-black text-black">
-                          Style:{" "}
-                        </span>{" "}
-                        Italic Minimal Design
-                      </p>
-                      <p className="text-sm dark:text-white leading-none text-gray-800">
-                        <span className="dark:text-black text-black">
-                          Size:{" "}
-                        </span>{" "}
-                        Small
-                      </p>
-                      <p className="text-sm dark:text-white leading-none text-gray-800">
-                        <span className="dark:text-black text-black">
-                          Color:{" "}
-                        </span>{" "}
-                        Light Blue
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex justify-between space-x-8 items-start w-full">
-                    <p className="text-base dark:text-white xl:text-lg leading-6">
-                      499{" "}
-                      <span className="text-red-300 line-through"> 799</span>
-                    </p>
-                    <p className="text-base dark:text-white xl:text-lg leading-6 text-gray-800">
-                      01
-                    </p>
-                    <p className="text-base dark:text-white xl:text-lg font-semibold leading-6 text-gray-800">
-                      499
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="mt-6 md:mt-0 flex justify-start flex-col md:flex-row items-start md:items-center space-y-4 md:space-x-6 xl:space-x-8 w-full">
-                <div className="w-full md:w-40">
-                  <img
-                    className="w-full hidden md:block"
-                    src={img2}
-                    alt="dress"
-                  />
-                  <img
-                    className="w-full md:hidden"
-                    src={img2}
-                    alt="dress"
-                  />
-                </div>
-                <div className="flex justify-between items-start w-full flex-col md:flex-row space-y-4 md:space-y-0">
-                  <div className="w-full flex flex-col justify-start items-start space-y-8">
-                    <h3 className="text-xl dark:text-white xl:text-2xl font-semibold leading-6 text-gray-800">
-                      Monkey X Series
-                    </h3>
-                    <div className="flex justify-start items-start flex-col space-y-2">
-                      <p className="text-sm dark:text-white leading-none text-gray-800">
-                        <span className="dark:text-black text-black">
-                          Style:{" "}
-                        </span>{" "}
-                        Italic Minimal Design
-                      </p>
-                      <p className="text-sm dark:text-white leading-none text-gray-800">
-                        <span className="dark:text-black text-black">
-                          Size:{" "}
-                        </span>{" "}
-                        Small
-                      </p>
-                      <p className="text-sm dark:text-white leading-none text-gray-800">
-                        <span className="dark:text-black text-black">
-                          Color:{" "}
-                        </span>{" "}
-                        Light Blue
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex justify-between space-x-8 items-start w-full">
-                    <p className="text-base dark:text-white xl:text-lg leading-6">
-                      499{" "}
-                      <span className="text-red-300 line-through"> 699</span>
-                    </p>
-                    <p className="text-base dark:text-white xl:text-lg leading-6 text-gray-800">
-                      01
-                    </p>
-                    <p className="text-base dark:text-white xl:text-lg font-semibold leading-6 text-gray-800">
-                      499
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="flex justify-center flex-col md:flex-row items-stretch w-full space-y-4 md:space-y-0 md:space-x-6 xl:space-x-8">
-              <div className="flex flex-col px-4 py-6 md:p-6 xl:p-8 w-full bg-gray-50 dark:bg-gray-800 space-y-6">
-                <h3 className="text-xl dark:text-white font-semibold leading-5 text-gray-800">
-                  Summary
-                </h3>
-                <div className="flex justify-center items-center w-full space-y-4 flex-col border-gray-200 border-b pb-4">
-                  <div className="flex justify-between w-full">
-                    <p className="text-base dark:text-white leading-4 text-gray-800">
-                      Subtotal
-                    </p>
-                    <p className="text-base dark:text-gray-300 leading-4 text-gray-600">
-                      998
-                    </p>
-                  </div>
-                  <div className="flex justify-between items-center w-full">
-                    <p className="text-base dark:text-white leading-4 text-gray-800">
-                      Discount{" "}
-                      <span className="bg-gray-200 p-1 text-xs font-medium dark:bg-white dark:text-gray-800 leading-3 text-gray-800">
-                        STUDENT
-                      </span>
-                    </p>
-                    <p className="text-base dark:text-gray-300 leading-4 text-gray-600">
-                      -100
-                    </p>
-                  </div>
-                  <div className="flex justify-between items-center w-full">
-                    <p className="text-base dark:text-white leading-4 text-gray-800">
-                      Shipping
-                    </p>
-                    <p className="text-base dark:text-gray-300 leading-4 text-gray-600">
-                      898
-                    </p>
-                  </div>
-                </div>
-                <div className="flex justify-between items-center w-full">
-                  <p className="text-base dark:text-white font-semibold leading-4 text-gray-800">
-                    Total
-                  </p>
-                  <p className="text-base dark:text-gray-300 font-semibold leading-4 text-gray-600">
-                    898
-                  </p>
-                </div>
-              </div>
-              <div className="flex flex-col justify-center px-4 py-6 md:p-6 xl:p-8 w-full bg-gray-50 dark:bg-gray-800 space-y-6">
-                <h3 className="text-xl dark:text-white font-semibold leading-5 text-gray-800">
-                  Shipping
-                </h3>
-                <div className="flex justify-between items-start w-full">
-                  <div className="flex justify-center items-center space-x-4">
-                    <div className="w-8 h-8">
+
+    <div className="max-w-7xl px-2 lg:px-0 mx-2 lg:mx-10 ">
+      <div className="mx-auto max-w-2xl py-8 lg:max-w-7xl">
+        <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          Shopping Cart
+        </h1>
+        <div className="mt-12 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
+          <section aria-labelledby="cart-heading" className="rounded-lg bg-white lg:col-span-8">
+            <h2 id="cart-heading" className="sr-only">
+              Items in your shopping cart
+            </h2>
+            <ul role="list" className="divide-y divide-gray-200">
+              {cartItems.length != 0 ? cartItems.map((product) => (
+                <div key={product._id} className="">
+                  <li className="flex py-6 sm:py-6 ">
+                    <div className="flex-shrink-0">
                       <img
-                        className="w-full h-full"
-                        alt="logo"
-                        src="https://i.ibb.co/L8KSdNQ/image-3.png"
+                        src={product.image}
+                        alt={product.name}
+                        className="sm:h-38 sm:w-38 h-24 w-24 rounded-md object-contain object-center"
                       />
                     </div>
-                    <div className="flex flex-col justify-start items-center">
-                      <p className="text-lg leading-6 dark:text-white font-semibold text-gray-800">
-                        DPD Delivery
-                        <br />
-                        <span className="font-normal">Delivery with 24 Hours</span>
-                      </p>
+
+                    <div className="ml-4 flex flex-1 flex-col justify-between sm:ml-6">
+                      <div className="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
+                        <div>
+                          <div className="flex justify-between">
+                            <h3 className="text-base">
+                              <Link to={`/product/${product._id}`} className="font-semibold text-black">
+                                {product.name}
+                              </Link>
+                            </h3>
+                          </div>
+                          {/* <div className="mt-1 flex text-sm">
+                            <p className="text-sm text-gray-500">{product.color}</p>
+                            {product.sizes ? (
+                              <p className="ml-4 border-l border-gray-200 pl-4 text-sm text-gray-500">
+                                {product.size}
+                              </p>
+                            ) : null}
+                          </div> */}
+                          <div className="mt-1 flex items-end py-2">
+                            <p className="text-sm font-medium text-gray-500 line-through">
+                              {product.price + 1500}
+                            </p>
+                            <p className="text-base font-medium text-gray-900">
+                              &nbsp;&nbsp;{product.price}
+                            </p>
+                            &nbsp;&nbsp;
+                            <p className="text-base font-medium text-green-500">{Math.ceil((product.price + 1500 - product.price) / (product.price + 1500) * 100)}% Off</p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
+                  </li>
+                  <div className="flex justify-between">
+                    <div className='flex mb-2 items-center'>
+                      <div className="min-w-24 flex">
+                        <button onClick={() => subQuantity(product)} type="button" className="h-7 w-7">
+                          -
+                        </button>
+                        <input
+                          type="text"
+                          className="mx-1 h-7 w-9 rounded-md border text-center"
+                          value={product.quantity!}
+                          readOnly
+                        />
+                        <button onClick={() => addQyantity(product)} type="button" className="flex h-7 w-7 items-center justify-center">
+                          +
+                        </button>
+                      </div>
+                      <div className="ml-6 flex text-sm">
+                        <button onClick={() => dispatch(removeItemFromCart(product._id))} type="button" className="flex items-center space-x-1 px-2 py-1 pl-0">
+                          <Trash size={14} className="text-red-500" />
+                          <span className="text-base font-medium text-red-500">Remove</span>
+                        </button>
+                      </div>
+                    </div>
+
+                    <p className="text-base font-medium text-gray-900">Total Price : <span className='text-red-500'> ₹{product.price * product.quantity!}</span></p>
                   </div>
-                  <p className="text-lg font-semibold leading-6 dark:text-white text-gray-800">
-                    898
-                  </p>
                 </div>
-                <div className="w-full flex justify-center items-center">
-                  <button className="mt-8 w-full inline-flex items-center justify-center rounded-xl bg-red-600 py-3 px-6 font-dm text-base font-medium text-white shadow-xl shadow-red-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.02]">Buy Now
-                    <a href="https://buy.stripe.com/test_6oE8wQfBFggV9oY6op">Pay Now</a>
-                  </button>
+              )) :
+                <div className="text-center">
+                  <img src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-2130356-1800917.png" className='w-5/6 object-contain' alt="" />
+                  <Link className='bg-blue-500 text-white px-4 py-2 font-semibold rounded-sm hover:bg-blue-500/90 drop-shadow-lg' to={"/"}>Continue Shopping</Link>
+                </div>}
+            </ul>
+          </section>
+          {/* Order summary */}
+          <section
+            aria-labelledby="summary-heading"
+            className="mt-16 rounded-md bg-white lg:col-span-4 lg:mt-0 lg:p-0"
+          >
+            <h2
+              id="summary-heading"
+              className=" border-b border-gray-200 py-3 text-2xl font-semibold text-gray-900 px-2"
+            >
+              Price Details
+            </h2>
+            <div>
+              <dl className=" space-y-1 px-2 py-4">
+                <div className="flex items-center justify-between">
+                  <dt className="text-sm text-gray-800">Price ({totalItemQuantity} item)</dt>
+                  <dd className="text-sm font-medium text-gray-900">₹ {totalPriceWithoutDiscount}</dd>
                 </div>
+                <div className="flex items-center justify-between pt-4">
+                  <dt className="flex items-center text-sm text-gray-800">
+                    <span>Discount</span>
+                  </dt>
+                  <dd className="text-sm font-medium text-green-700">- ₹ {totalDiscountPrice}</dd>
+                </div>
+                <div className="flex items-center justify-between py-4">
+                  <dt className="flex text-sm text-gray-800">
+                    <span>Delivery Charges</span>
+                  </dt>
+                  <dd className="text-sm font-medium text-green-700">Free</dd>
+                </div>
+                <div className="flex items-center justify-between border-y border-dashed py-4 ">
+                  <dt className="text-base font-medium text-gray-900">Total Amount</dt>
+                  <dd className="text-base font-medium text-gray-900">₹ {finalPrice}</dd>
+                </div>
+              </dl>
+              <div className="px-2 pb-4 font-medium text-green-700">
+                You will save ₹ {totalDiscountPrice} on this order
               </div>
+
+              <MyButton onClick={checkoutHandler}>Checkout ₹ {finalPrice} </MyButton>
+              <MyModal open={openModal} onClose={closeModal}>
+                <AddressForm closeModal={closeModal}/>
+              </MyModal>
             </div>
-          </div>
-          <div className="bg-gray-50 dark:bg-gray-800 w-full xl:w-96 flex justify-between items-center md:items-start px-4 py-6 md:p-6 xl:p-8 flex-col">
-            <h3 className="text-xl dark:text-white font-semibold leading-5 text-gray-800">
-              Customer
-            </h3>
-            <div className="flex flex-col md:flex-row xl:flex-col justify-start items-stretch h-full w-full md:space-x-6 lg:space-x-8 xl:space-x-0">
-              <div className="flex flex-col justify-start items-start flex-shrink-0">
-                <div className="flex justify-center w-full md:justify-start items-center space-x-4 py-8 border-b border-gray-200">
-                  <img src="https://i.ibb.co/5TSg7f6/Rectangle-18.png" alt="avatar" />
-                  <div className="flex justify-start items-start flex-col space-y-2">
-                    <p className="text-base dark:text-white font-semibold leading-4 text-left text-gray-800">
-                      Animesh Shukla
-                    </p>
-                    <p className="text-sm dark:text-gray-300 leading-5 text-gray-600">
-                      10 Previous Orders
-                    </p>
-                  </div>
-                </div>
-                <div className="flex justify-center text-gray-800 dark:text-white md:justify-start items-center space-x-4 py-4 border-b border-gray-200 w-full">
-                  <img
-                    className="dark:hidden"
-                    src="https://tuk-cdn.s3.amazonaws.com/can-uploader/order-summary-3-svg1.svg"
-                    alt="email"
-                  />
-                  <img
-                    className="hidden dark:block"
-                    src="https://tuk-cdn.s3.amazonaws.com/can-uploader/order-summary-3-svg1dark.svg"
-                    alt="email"
-                  />
-                  <p className="cursor-pointer text-sm leading-5 ">
-                    animeshshukla@gmail.com
-                  </p>
-                </div>
-              </div>
-              <div className="flex justify-between xl:h-full items-stretch w-full flex-col mt-6 md:mt-0">
-                <div className="flex justify-center md:justify-start xl:flex-col flex-col md:space-x-6 lg:space-x-8 xl:space-x-0 space-y-4 xl:space-y-12 md:space-y-0 md:flex-row items-center md:items-start">
-                  <div className="flex justify-center md:justify-start items-center md:items-start flex-col space-y-4 xl:mt-8">
-                    <p className="text-base dark:text-white font-semibold leading-4 text-center md:text-left text-gray-800">
-                      Shipping Address
-                    </p>
-                    <p className="w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-sm leading-5 text-gray-600">
-                      297, Gandhi Nagar Unnao Uttar Pradesh
-                    </p>
-                  </div>
-                  <div className="flex justify-center md:justify-start items-center md:items-start flex-col space-y-4">
-                    <p className="text-base dark:text-white font-semibold leading-4 text-center md:text-left text-gray-800">
-                      Billing Address
-                    </p>
-                    <p className="w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-sm leading-5 text-gray-600">
-                      297, Gandhi Nagar Unnao Uttar Pradesh
-                    </p>
-                  </div>
-                </div>
-                <div className="flex w-full justify-center items-center md:justify-start md:items-start">
-                  <button className="mt-6 md:mt-0 dark:border-white dark:hover:bg-gray-900 dark:bg-transparent dark:text-white py-5 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 border border-gray-800 font-medium w-96 2xl:w-full text-base leading-4 text-gray-800">
-                    Edit Details
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+          </section>
         </div>
       </div>
-
     </div>
+
+    // <div>
+    //   <div className="mx-auto my-4 max-w-4xl md:my-6">
+    //     <div className="overflow-hidden  rounded-xl shadow">
+    //       <div className="grid grid-cols-1 md:grid-cols-2">
+    //         <div className="px-5 py-6 text-gray-900 md:px-8">
+    //           <div className="flow-root">
+    //             <div className="-my-6 divide-y divide-gray-200">
+    //               <div className="py-6">
+    //                 <Form />
+    //               </div>
+    //             </div>
+    //           </div>
+    //         </div>
+    //         <div className="bg-gray-100 px-5 py-6 md:px-8">
+    //           <div className="flow-root">
+    //             <ul className="-my-7 divide-y divide-gray-200">
+    //               <li className="flex items-stretch justify-between space-x-5 py-7">
+    //                 <div className="flex flex-1 items-stretch">
+    //                   <div className="flex-shrink-0">
+    //                     <img
+    //                       className="h-20 w-20 rounded-lg border border-gray-200 bg-white object-contain"
+    //                       src=""
+    //                     />
+    //                   </div>
+    //                   <div className="ml-5 flex flex-col justify-between">
+    //                     <div className="flex-1">
+    //                       <p className="text-sm font-bold">Nike Air Force 1 07 LV8</p>
+    //                       <p className="mt-1.5 text-sm font-medium text-gray-500">
+    //                         Orange
+    //                       </p>
+    //                     </div>
+    //                     <p className="mt-4 text-xs font-medium ">x 1</p>
+    //                   </div>
+    //                 </div>
+    //                 <div className="ml-auto flex flex-col items-end justify-between">
+    //                   <p className="text-right text-sm font-bold text-gray-900">
+    //                     ₹47,199
+    //                   </p>
+    //                   <button
+    //                     type="button"
+    //                     className="-m-2 inline-flex rounded p-2 text-gray-400 transition-all duration-200 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
+    //                   >
+    //                     <span className="sr-only">Remove</span>
+    //                     <svg
+    //                       xmlns="http://www.w3.org/2000/svg"
+    //                       width="24"
+    //                       height="24"
+    //                       viewBox="0 0 24 24"
+    //                       fill="none"
+    //                       stroke="currentColor"
+    //                       stroke-width="2"
+    //                       stroke-linecap="round"
+    //                       stroke-linejoin="round"
+    //                       className="h-5 w-5"
+    //                     >
+    //                       <line x1="18" y1="6" x2="6" y2="18"></line>
+    //                       <line x1="6" y1="6" x2="18" y2="18"></line>
+    //                     </svg>
+    //                   </button>
+    //                 </div>
+    //               </li>
+    //             </ul>
+    //           </div>
+    //           <hr className="mt-6 border-gray-200" />
+    //           <form action="#" className="mt-6">
+    //             <div className="sm:flex sm:space-x-2.5 md:flex-col md:space-x-0 lg:flex-row lg:space-x-2.5">
+    //               <div className="flex-grow">
+    //                 <input
+    //                   className="flex w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+    //                   type="text"
+    //                   placeholder="Enter coupon code"
+    //                 />
+    //               </div>
+    //               <div className="mt-4 sm:mt-0 md:mt-4 lg:mt-0">
+    //                 <button
+    //                   type="button"
+    //                   className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+    //                 >
+    //                   Apply Coupon
+    //                 </button>
+    //               </div>
+    //             </div>
+    //           </form>
+    //           <ul className="mt-6 space-y-3">
+    //             <li className="flex items-center justify-between text-gray-600">
+    //               <p className="text-sm font-medium">Sub total</p>
+    //               <p className="text-sm font-medium">₹1,14,399</p>
+    //             </li>
+    //             <li className="flex items-center justify-between text-gray-900">
+    //               <p className="text-sm font-medium ">Total</p>
+    //               <p className="text-sm font-bold ">₹1,14,399</p>
+    //             </li>
+    //           </ul>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>
+
+    //   <br></br><br></br>
+    // </div>
   )
 }
 

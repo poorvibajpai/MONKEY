@@ -39,7 +39,7 @@ const NavBar = ({ navItems }: { navItems: NavItems[] }) => {
             </svg>
           </span> */}
           {/* <span className="font-bold">Monkey</span> */}
-          <img src={logo} alt="" className="w-full h-full" />
+          <Link to={"/"}><img src={logo} alt="" className="w-full h-full" /></Link>
         </div>
         <div className="hidden lg:block">
           <ul className="inline-flex space-x-8">

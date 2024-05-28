@@ -40,6 +40,7 @@ function App() {
               }
             </Routes>
           </section>
+          <br></br>
           <Footer />
         </>
         // main website routes
@@ -47,7 +48,7 @@ function App() {
           <nav className='fixed top-0 left-0 z-50 w-full'>
             <NavBar navItems={websiteUrlPathName} />
           </nav>
-          <section className='relative top-[78px] p-5 min-h-screen'>
+          <section className='relative top-[78px] p-5 min-h-screen mb-5'>
 
             <Routes>
               {

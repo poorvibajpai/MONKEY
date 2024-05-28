@@ -14,7 +14,7 @@ type ProductProps = {
   data?: ProductType
 }
 
-const ProductCard = ({ width, imgUrl, data ,}: ProductProps) => {
+const ProductCard = ({ width, imgUrl, data, }: ProductProps) => {
   return (
     <div className={`rounded-md border w-[${width}] my-2 h-max w-max-[23%]`}>
       <Link to={`/product/${data?._id}`} className="block overflow-hidden">
@@ -26,9 +26,54 @@ const ProductCard = ({ width, imgUrl, data ,}: ProductProps) => {
           />
         </div>
         <div className="p-4">
-          <h1 className="inline-flex items-center text-lg font-semibold">{data?.name || "Monkey X Series"}</h1>
-          <h1 className='my-2 text-orange-600 font-semibold'>From ₹ {data?.price || "999"}</h1>
-          <button className="mt-8 w-full inline-flex items-center justify-center rounded-xl bg-red-600 py-3 px-6 font-dm text-base font-medium text-white shadow-xl shadow-red-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.02]">Buy Now</button>
+          <h1 className="inline-flex items-center text-lg font-semibold">
+            {data?.name || "Monkey X Series"}
+          </h1>
+          <div className="mt-4">
+            <span className="mb-2 mr-2 inline-block rounded-full bg-cyan-500 px-3 py-1 text-[10px] font-light text-white">
+              #Monkey
+            </span>
+            <span className="mb-2 mr-2 inline-block rounded-full bg-cyan-500 px-3 py-1 text-[10px] font-semibold text-white">
+              #70%off
+            </span>
+            <span className="mb-2 mr-2 inline-block rounded-full bg-cyan-400 px-3 py-1 text-[10px] font-semibold text-white">
+              #MonkeyX
+            </span>
+          </div>
+          <div className="mt-5 flex items-center space-x-2">
+            <span className="block text-sm font-semibold">Size : </span>
+            <span className="block cursor-pointer rounded-md border border-gray-300 p-1 px-2 text-xs font-medium">
+              M
+            </span>
+            <span className="block cursor-pointer rounded-md border border-gray-300 p-1 px-2 text-xs font-medium">
+              L
+            </span>
+            <span className="block cursor-pointer rounded-md border border-gray-300 p-1 px-2 text-xs font-medium">
+              Xl
+            </span>
+          </div>
+          <div className="flex py-2">
+            <h1 className='text-black md:text-base lg:text-lg xl:text-xl font-light'>₹ {data?.price || "999"}</h1>
+            <h1 className="font-segoe pl-2 text-sm text-red-400 line-through md:text-base lg:text-lg xl:text-xl">
+              ₹ 1999
+            </h1>
+
+          </div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="mr-3"
+          >
+            <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path>
+          </svg>
+          <button className="mt-8 w-full inline-flex items-center justify-center rounded-xl bg-yellow-800 py-3 px-6 font-dm text-base font-medium text-white shadow-xl shadow-yellow-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.02]">Add To Cart</button>
         </div>
       </Link>
     </div >
