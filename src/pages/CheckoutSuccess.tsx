@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { setCartEmpty } from '../redux/slices/cartSlice';
 // import Lottie from 'react-lottie';
 // import successAnimation from '../public/animations/success.json';
@@ -9,13 +9,12 @@ import { setCartEmpty } from '../redux/slices/cartSlice';
 const CheckoutSuccess = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const {sessionId} = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  useEffect(() => {
-    const query = new URLSearchParams(window.location.search);
-    const sessionId = query.get('session_id');
 
+  useEffect(() => {
     if (!sessionId) {
       navigate("/")
     }

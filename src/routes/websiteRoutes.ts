@@ -46,7 +46,7 @@ const websiteRoutes = [
   element: CustomProductPage,
  },
  {
-  path: "/success-payment",
+  path: "/success-payment/:sessionId",
   element: CheckoutSuccess,
  },
 ];
