@@ -17,7 +17,7 @@ import Card from '../components/Card'
 
 const HomePage = () => {
   const { data, error, loading } = useFetch("/products/latest?id=1");
-  const { data:latestData2, error:latestError, loading:latestLoading } = useFetch("/products/latest?id=2");
+  const { data: latestData2, error: latestError, loading: latestLoading } = useFetch("/products/latest?id=2");
 
   return (
     <div className="">
@@ -34,11 +34,11 @@ const HomePage = () => {
         isPassingData={true}
         defaultValue="JACKETS"
       />
-       <Card />
+      <Card />
       <br></br>
-<div className='flex justify-center items-center py-4'>
-     <img src="https://sanfe.in/cdn/shop/collections/Sanfe-b1g1-banner.gif?v=1662710970"></img>
-     </div>
+      <div className='flex justify-center items-center py-4'>
+        <img src="https://sanfe.in/cdn/shop/collections/Sanfe-b1g1-banner.gif?v=1662710970"></img>
+      </div>
       <HeroSlider items={[img4, img5]} />
       <Items
         list={["JACKETS", "SWEATSHIRTS", "HOODIES"]}
@@ -51,8 +51,8 @@ const HomePage = () => {
       <HeroSlider items={[img6, img7]} />
       <br></br>
       <div>
-          <img src="https://i.pinimg.com/originals/96/97/d5/9697d5435dca7c12b2a714ca16c50cf9.gif  "></img>
-        </div>
+        <img src="https://i.pinimg.com/originals/96/97/d5/9697d5435dca7c12b2a714ca16c50cf9.gif  "></img>
+      </div>
       <br></br>
       <Items
         list={["TSHIRTS", "JOGGERS", "SHIRTS"]}
@@ -62,22 +62,22 @@ const HomePage = () => {
         isPassingData={true}
         defaultValue="TSHIRTS"
       />
-      
+
       <AllCategory />
       <div>
-          <img src="https://images.bewakoof.com/uploads/grid/app/CustomisationCampaignPage-desktop-01-1687842231.jpg"></img>
-        </div>
+        <img src="https://images.bewakoof.com/uploads/grid/app/CustomisationCampaignPage-desktop-01-1687842231.jpg"></img>
+      </div>
       <br></br>
       <Video />
       <br></br>
       <div> <div className="py-5 flex items-center justify-center">
-          <Type text="Summer Sale Collection 50% off just @999" />
-          <div className="px-4">
-          </div></div>
-          <br></br>
-      <Items />
-      <BeforeFooter />
-    </div>
+        <Type text="Summer Sale Collection 50% off just @999" />
+        <div className="px-4">
+        </div></div>
+        <br></br>
+        <Items />
+        <BeforeFooter />
+      </div>
     </div>
   )
 }
