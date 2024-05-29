@@ -26,4 +26,5 @@ type UserInfo = {
   userId: string;
   email: string;
   idToken: string;
+  photoUrl:null;
 };

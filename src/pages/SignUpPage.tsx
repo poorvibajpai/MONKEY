@@ -1,11 +1,11 @@
 // import { database, provider } from '../Firebase';
 // import { createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { FormEvent, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { signUpWithEmailPassword } from '../utils/services';
+import { Link, useNavigate } from 'react-router-dom';
+import { signInWithGooglePopup, signUpWithEmailPassword } from '../utils/services';
 
 const SignUpPage: React.FC = () => {
-  // const history = useNavigate();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({ email: "", password: "" });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -14,25 +14,17 @@ const SignUpPage: React.FC = () => {
       [e.target.name]: e.target.value,
     });
   };
-  // const handelSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+
   const handelSubmit = async(e:FormEvent) => {
     e.preventDefault();
-    await signUpWithEmailPassword(formData.email,formData.password)
-    // e.preventDefault();
-    // const email: string = e.currentTarget.email.value;
-    // const password: string = e.currentTarget.password.value;
-
-    // createUserWithEmailAndPassword(database, email, password).then((data) => {
-    //   console.log(data, "authData");
-    //   history('/home');
-    // });
+    const resp = await signUpWithEmailPassword(formData.email,formData.password)
+    if(resp.success){
+      navigate("/signin")
+    }
   };
 
-  const handelClick = () => {
-    // signInWithPopup(database, provider).then((data) => {
-    //   console.log(data, "authData");
-    //   history('/home');
-    // });
+  const handelClick = async() => {
+    await signInWithGooglePopup()
   };
 
   return (
@@ -150,7 +142,7 @@ const SignUpPage: React.FC = () => {
             </span>
             Sign in with Google
           </button>
-          <button
+          {/* <button
             type="button"
             className="relative inline-flex w-full items-center justify-center rounded-md border border-gray-400 bg-white px-3.5 py-2.5 font-semibold text-gray-700 transition-all duration-200 hover:bg-gray-100 hover:text-black focus:bg-gray-100 focus:text-black focus:outline-none"
           >
@@ -165,7 +157,7 @@ const SignUpPage: React.FC = () => {
               </svg>
             </span>
             Sign in with Facebook
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

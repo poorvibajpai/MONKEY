@@ -1,8 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import toast from "react-hot-toast";
 
 type initialStateType = {
- user: UserInfo;
+ user: UserInfo | {};
 };
 
 const initialState: initialStateType = {
@@ -17,8 +16,13 @@ const userSlice = createSlice({
    state.user = action.payload;
    return state
   },
+
+  removeUser:(state)=>{
+    state.user = {}
+    localStorage.removeItem("userInfo")
+  }
  },
 });
 
 export default userSlice.reducer;
-export const {setUser} = userSlice.actions;
+export const {setUser,removeUser} = userSlice.actions;

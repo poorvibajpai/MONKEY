@@ -1,6 +1,6 @@
 import { FormEvent, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { signInWithEmailPassword } from '../utils/services';
+import { signInWithEmailPassword, signInWithGooglePopup } from '../utils/services';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../redux/slices/userSlice';
 
@@ -20,14 +20,13 @@ const SigninPage: React.FC = () => {
     e.preventDefault();
     const resp = await signInWithEmailPassword(formData.email, formData.password)
     if(resp){
-      console.log(resp)
       dispatch(setUser(resp))
       navigate("/")
     }
   };
 
-  const handelClick = () => {
-   
+  const handelClick = async() => {
+    await signInWithGooglePopup()
   };
 
   return (
@@ -131,7 +130,7 @@ const SigninPage: React.FC = () => {
             </span>
             Sign in with Google
           </button>
-          <button
+          {/* <button
             type="button"
             className="relative inline-flex w-full items-center justify-center rounded-md border border-gray-400 bg-white px-3.5 py-2.5 font-semibold text-gray-700 transition-all duration-200 hover:bg-gray-100 hover:text-black focus:bg-gray-100 focus:text-black focus:outline-none"
           >
@@ -146,7 +145,7 @@ const SigninPage: React.FC = () => {
               </svg>
             </span>
             Sign in with Facebook
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@ import { Trash } from 'lucide-react';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AddressForm from '../components/AddressForm';
 import MyButton from '../components/ui/MyButton';
 import MyModal from '../components/ui/MyModal';
@@ -11,8 +11,10 @@ import { addItemToCart, removeItemFromCart } from '../redux/slices/cartSlice';
 const CartPage = () => {
   const [openModal, setOpenModal] = useState(false)
 
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const user = useSelector((state:any)=>state.user.user) as UserInfo;
   const cartItems = useSelector((state: any) => state.cart.cartItems) as CartItemType[];
   const totalItemQuantity = cartItems.reduce((acc, curr) => acc = acc + curr.quantity!, 0)
   const totalPriceWithoutDiscount = cartItems.reduce((acc, curr) => acc = acc + ((curr.price + 1500) * curr.quantity!), 0)
@@ -38,9 +40,12 @@ const CartPage = () => {
       toast.error("Cart is empty please add some items");
       return;
     }
+    if(Object.keys(user).length == 0){
+      navigate("/signin")
+      return;
+    }
     setOpenModal(true)
   }
-
   const closeModal = () => {
     setOpenModal(false)
   }
