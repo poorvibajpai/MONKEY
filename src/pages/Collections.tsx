@@ -42,7 +42,6 @@ const Collections = () => {
     return <NoItem />
   }
   useEffect(() => {
-    if (loading) return;
 
     if (!error && !loading && !filterCategory || filterCategory?.length == 0) {
       setFilterData(data)
@@ -70,8 +69,7 @@ const Collections = () => {
         </div>
       </div>
       <br></br>
-      <section className="flex col-sm-4 col-xs-6 px-2">
-        <main className="w-full border border-gray-200 flex justify-evenly flex-wrap">
+        <section className="w-full -mx-2 flex justify-evenly flex-wrap">
           {loading && Array.from({ length: 8 }).map((_, i) => (
             <ProductSkeleton key={i} />
           ))}
@@ -84,8 +82,7 @@ const Collections = () => {
             !loading && error && <NoItem />
           }
 
-        </main>
-      </section>
+        </section>
     </div>
   )
 }

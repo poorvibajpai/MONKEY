@@ -98,7 +98,7 @@ const Items = ({ list, data, error, loading, isPassingData = false, defaultValue
     return (
       <div className="flex justify-evenly flex-wrap">
         {tempData.map((item, i) => (
-          <ProductCard width={"20%"} key={i} imgUrl={item.imgUrl} />
+          <ProductCard key={i} imgUrl={item.imgUrl} />
         ))
         }
       </div>
@@ -127,7 +127,7 @@ const Items = ({ list, data, error, loading, isPassingData = false, defaultValue
 
 
   return (
-    <div className="my-10">
+    <div className="my-10 -mx-3">
       <ul className="flex w-full my-10 justify-center space-x-5">
         {list?.map((name) =>
           <li key={name} onClick={(e: any) => setlistCategory(e.target.innerText.toLowerCase())} className="cursor-pointer text-lg font-semibold">{name}</li>
@@ -135,7 +135,7 @@ const Items = ({ list, data, error, loading, isPassingData = false, defaultValue
       </ul>
       <div className="flex flex-wrap justify-evenly">
         {!loading && !error && filterData?.length! > 0 ? filterData?.map((item, i) => (
-            <ProductCard width={"24%"} key={i} imgUrl={item.image} data={item} />
+            <ProductCard key={i} imgUrl={item.image} data={item} />
         ))
           : <NoItem />
         }
