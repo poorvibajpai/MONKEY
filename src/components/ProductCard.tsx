@@ -3,12 +3,11 @@ import productImg from "../assets/category/00495429800-e1.jpg"
 type ProductProps = {
   imgUrl?: string;
   data?: ProductType
-  width?:string
 }
 
-const ProductCard = ({ imgUrl, data,width="19.5%" }: ProductProps) => {
+const ProductCard = ({ imgUrl, data }: ProductProps) => {
   return (
-    <div className={`rounded-md border w-[${width}] h-max my-2`}>
+    <div className={`rounded-md border w-[19.5%] h-max my-2`}>
       <Link to={`/product/${data?._id}`} className="block overflow-hidden">
         <div className="max-h-[350px] overflow-hidden">
           <img
