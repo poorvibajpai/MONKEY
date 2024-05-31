@@ -6,18 +6,6 @@ const filters = [
     name: 'Category',
     options: ["jackets","sweatshirts","hoodies","tshirts","joggers","shirts"],
   },
-  // {
-  //   id: 'sizes',
-  //   name: 'Sizes',
-  //   options: [
-  //     { value: 'xs', label: 'XS' },
-  //     { value: 's', label: 'S' },
-  //     { value: 'm', label: 'M' },
-  //     { value: 'l', label: 'L' },
-  //     { value: 'xl', label: 'XL' },
-  //     { value: '2xl', label: '2XL' },
-  //   ],
-  // },
 ]
 type Props = {
   filterCategory:string[] | null;
@@ -36,13 +24,13 @@ export default function Filter({setFilterCategory , filterCategory}:Props) {
     }
   }
   return (
-    <section className="w-full px-10 border border-gray-200">
+    <section className="w-full h-[8vh] border border-gray-200">
       {filters.map((filter) => (
-        <div key={filter.id} className="pt-6">
-          <h3 className="text-lg font-semibold text-gray-900">{filter.name}</h3>
-          <ul className="mt-2">
+        <div key={filter.id} className="flex justify-center items-center">
+          <br/>
+        <ul className="inline-flex items-center space-x-10 py-2">
             {filter.options.map((value) => (
-              <li key={value} className="flex items-center justify-between py-2">
+              <li key={value} className="p-2">
                 <div className="flex items-center">
                   <input
                     id={`${filter.id}-${value}`}
@@ -50,11 +38,11 @@ export default function Filter({setFilterCategory , filterCategory}:Props) {
                     type="checkbox"
                     value={value}
                     onChange={handleOnchange}
-                    className="h-4 w-4 rounded border-gray-300 text-black focus:ring-black"
+                    className="h-5 w-5 rounded font-2xl border-gray-300 accent-teal-600 text-red-500"
                   />
                   <label
                     htmlFor={`${filter.id}-${value}`}
-                    className="ml-3 text-sm font-medium text-gray-900 capitalize"
+                    className="ml-3 text-sm font-medium text-red-500 capitalize"
                   >
                     {value}
                   </label>

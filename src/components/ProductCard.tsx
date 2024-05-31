@@ -1,22 +1,13 @@
-// import React from 'react'
 import { Link } from "react-router-dom"
-// import productImg from "../assets/all-Categories/monkey_allCategories4.jpeg"
-// const sizes = [
-//   "XS", "S", "M", "L", "XL", "XXL"
-// ]
 import productImg from "../assets/category/00495429800-e1.jpg"
-
-
-
 type ProductProps = {
-  width?: string;
   imgUrl?: string;
   data?: ProductType
 }
 
-const ProductCard = ({ width, imgUrl, data, }: ProductProps) => {
+const ProductCard = ({ imgUrl, data, }: ProductProps) => {
   return (
-    <div className={`rounded-md border w-[${width}] my-2 h-max w-max-[23%]`}>
+    <div className={`rounded-md border w-[20%] h-max w-max-[23%]`}>
       <Link to={`/product/${data?._id}`} className="block overflow-hidden">
         <div className="max-h-[350px] overflow-hidden">
           <img
@@ -59,21 +50,7 @@ const ProductCard = ({ width, imgUrl, data, }: ProductProps) => {
             </h1>
 
           </div>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="mr-3"
-          >
-            <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path>
-          </svg>
-          <button className="mt-8 w-full inline-flex items-center justify-center rounded-xl bg-yellow-800 py-3 px-6 font-dm text-base font-medium text-white shadow-xl shadow-yellow-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.02]">Add To Cart</button>
+          <button className="mt-8 w-full inline-flex items-center justify-center rounded-xl bg-red-500 py-3 px-6 font-dm text-base font-medium text-white shadow-xl shadow-yellow-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.02]">Add To Cart</button>
         </div>
       </Link>
     </div >

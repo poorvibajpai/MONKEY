@@ -64,17 +64,20 @@ const Collections = () => {
       <h1 className="text-4xl text-center my-10">
         {heading}
       </h1>
-      <section className="flex gap-3">
-        <aside className="w-1/4">
+      <div>
+      <div className="flex justify-center items-center">
           <Filter setFilterCategory={setFilterCategory} filterCategory={filterCategory} />
-        </aside>
-        <main className="w-3/4 border border-gray-200 flex justify-evenly flex-wrap">
+        </div>
+      </div>
+      <br></br>
+      <section className="flex col-sm-4 col-xs-6 px-2">
+        <main className="w-full border border-gray-200 flex justify-evenly flex-wrap">
           {loading && Array.from({ length: 8 }).map((_, i) => (
             <ProductSkeleton key={i} />
           ))}
           {
             !loading && !error && filterData?.length > 0 && filterData?.map((item, i) => (
-              <ProductCard width={"20%"} key={i} imgUrl={item.image} data={item} />
+              <ProductCard key={i} imgUrl={item.image} data={item} />
             ))
           }
           {

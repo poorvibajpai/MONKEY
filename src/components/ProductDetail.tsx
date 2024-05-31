@@ -47,7 +47,7 @@ export default function ProductDetail() {
     <div className="block grid-cols-9 items-start gap-x-10 pb-10 pt-7 lg:grid lg:pb-14 xl:gap-x-14 2xl:pb-20">
       <div className="col-span-5 grid grid-cols-2 gap-2.5">
         <div
-          className="col-span-2 transition duration-150 ease-in hover:opacity-90"
+          className="col-span-2 rounded-xl transition duration-150 ease-in hover:opacity-90"
         >
           <img
             src={data?.image}
@@ -66,10 +66,10 @@ export default function ProductDetail() {
           </p>
           <div className="mt-5 flex items-center ">
             <div className="text-heading pr-2 text-base font-bold md:pr-0 md:text-xl lg:pr-2 lg:text-2xl 2xl:pr-0 2xl:text-4xl">
-              {data?.price}
+            ₹{data?.price}
             </div>
             <span className="font-segoe pl-2 text-sm text-gray-400 line-through md:text-base lg:text-lg xl:text-xl">
-              {data?.oldPrice || data.price + 2500}
+              ₹{data?.oldPrice || data.price + 2500}
             </span>
           </div>
         </div>
@@ -78,7 +78,7 @@ export default function ProductDetail() {
             <h3 className="text-heading mb-2.5 text-base font-semibold capitalize md:text-lg">
               size
             </h3>
-            <ul className="colors -mr-3 flex flex-wrap">
+            <button className="colors -mr-3 flex flex-wrap">
               {["S", "M", "L", "XL"].map((size) => (
                 <li
                   key={size}
@@ -87,7 +87,7 @@ export default function ProductDetail() {
                   {size}
                 </li>
               ))}
-            </ul>
+            </button>
           </div>
         </div>
         <div className="space-s-4 3xl:pr-48 flex items-center gap-2 border-b border-gray-300 py-8  md:pr-32 lg:pr-12 2xl:pr-32">
@@ -109,7 +109,7 @@ export default function ProductDetail() {
           <button
             onClick={handleCart}
             type="button"
-            className="h-11 w-full rounded-md  bg-yellow-600 py-3 px-6 font-dm text-base font-medium text-white shadow-xl shadow-yellow-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.02]">
+            className="h-11 w-full rounded-md  bg-red-500 py-3 px-6 font-dm text-base font-medium text-white shadow-xl shadow-yellow-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.02]">
             Add to Cart
           </button>
         </div>

@@ -2,9 +2,6 @@
 const Search = () => {
   return (
     <div>
-      <div className="bg-red-500 w-[300px] mx-auto">
-        <img src="" alt="generated image" />
-      </div>
       <label
         className="mx-auto mt-40 relative bg-white min-w-sm max-w-2xl flex flex-col md:flex-row items-center justify-center border py-2 px-2 rounded-2xl gap-2 shadow-2xl focus-within:border-gray-300"
         htmlFor="search-bar"

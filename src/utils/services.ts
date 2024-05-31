@@ -2,9 +2,9 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signInWithPopup,
-  GoogleAuthProvider,
+  GoogleAuthProvider , 
 } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth } from "../components/firebase";
 import toast from "react-hot-toast";
 
 const signInWithEmailPassword = async (email: string, password: string) => {
