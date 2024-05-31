@@ -1,12 +1,11 @@
 import { loadStripe } from '@stripe/stripe-js';
 import axios from 'axios';
 import { ShoppingCart } from 'lucide-react';
-import { FormEvent, useState } from 'react';
-import toast from 'react-hot-toast';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { SESSION_ID_GENERATE_URL } from '../utils/constants';
 import MyInput from './ui/MyInput';
-
+import toast from "react-hot-toast";
 const stripePromise = loadStripe('pk_test_51PFLVeSCb04hw5xSVk7GnEoAz1aFh4UjHmSvUVoVh50vJCnQNr2q9gW3EbahVdx9aW1fUPPOMqTw3jvbIrnYsvG100W7qOzMJK');
 
 type Props = {
@@ -26,18 +25,42 @@ const AddressForm = ({ closeModal,totalPrice,totalQuantity }: Props) => {
     mobileNo: '',
   })
 
-  const handleChange = (e: any) => {
-    const { name, value } = e.target
-    setFormData({
-      ...formdata,
-      [name]: value,
-    })
-  }
+  let name, value;
+  const handlerChange=(e:any)=> {
+    name = e.target.name;
+    value = e.target.value;
 
-  const submitHandler = async (e: FormEvent) => {
+    setFormData({ ...formdata,[name]:value});
+  };
+
+
+  const submitHandler = async (e:any)=>{
     e.preventDefault();
+    const {address,city,pincode,mobileNo} = formdata;
+    if(address && city && pincode && mobileNo){
+    const res = await fetch("/USERDATA/PuuC2bx4URmAQPTh6T9r",
+    {
+      method : "POST",
+      headers :{
+        "Content-Type":"application/json",
+      },
+      body: JSON.stringify({
+        address,city,pincode,mobileNo
+      }),
+    }
+    );
+    if (res){
+      setFormData({
+        address:"",
+        pincode:"",
+        city:"",
+        mobileNo:"",
+      })
+      toast.success("Done");
+  }
     // save user shipping details in data base
     
+
     // open payment gateway 
     try {
       const response = (await axios.post(SESSION_ID_GENERATE_URL,{items:cartItem})).data
@@ -58,7 +81,7 @@ const AddressForm = ({ closeModal,totalPrice,totalQuantity }: Props) => {
 
 
 
-
+  }
     //close form
     closeModal();
   }
@@ -79,7 +102,7 @@ const AddressForm = ({ closeModal,totalPrice,totalQuantity }: Props) => {
             </div>
           </div>
           <p className="text-sm font-bold text-gray-900">Shipping address</p>
-          <form onSubmit={submitHandler} className="mt-6 gap-6 space-y-4 md:grid md:grid-cols-2 md:space-y-0">
+          <form className="mt-6 gap-6 space-y-4 md:grid md:grid-cols-2 md:space-y-0">
 
             <div className="col-span-2 grid">
               <MyInput
@@ -87,7 +110,7 @@ const AddressForm = ({ closeModal,totalPrice,totalQuantity }: Props) => {
                 placeholder="Enter your address"
                 name="address"
                 value={formdata.address}
-                onChange={handleChange}
+                onChange={handlerChange}
                 required
               />
             </div>
@@ -98,7 +121,7 @@ const AddressForm = ({ closeModal,totalPrice,totalQuantity }: Props) => {
                 placeholder="Enter your city name"
                 name="city"
                 value={formdata.city}
-                onChange={handleChange}
+                onChange={handlerChange}
                 required
               />
             </div>
@@ -109,7 +132,7 @@ const AddressForm = ({ closeModal,totalPrice,totalQuantity }: Props) => {
                 placeholder="Enter your pincode"
                 name="pincode"
                 value={formdata.pincode}
-                onChange={handleChange}
+                onChange={handlerChange}
                 required
               />
             </div>
@@ -120,13 +143,14 @@ const AddressForm = ({ closeModal,totalPrice,totalQuantity }: Props) => {
                 placeholder="Enter your mobile no"
                 name="mobileNo"
                 value={formdata.mobileNo}
-                onChange={handleChange}
+                onChange={handlerChange}
                 required
               />
             </div>
 
             <div className="col-span-2 grid">
               <button
+              onClick={submitHandler}
                 type="submit"
                 className="w-full rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
