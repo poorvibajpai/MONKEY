@@ -12,7 +12,7 @@ const Collections = () => {
 
   let heading = category
   let url = "/products/filterdProducts?subCategory=";
-  
+
   switch (category) {
     case "mens":
       heading = "Monkey Man"
@@ -34,7 +34,7 @@ const Collections = () => {
 
 
 
-  
+
   const { data, error, loading }: { data: ProductType[], error: any, loading: boolean } = useFetch(url);
   const [filterCategory, setFilterCategory] = useState<string[] | null>(null)
   const [filterData, setFilterData] = useState(data)
@@ -42,7 +42,6 @@ const Collections = () => {
     return <NoItem />
   }
   useEffect(() => {
-    if (loading) return;
 
     if (!error && !loading && !filterCategory || filterCategory?.length == 0) {
       setFilterData(data)
@@ -50,7 +49,7 @@ const Collections = () => {
     }
 
     if (!error && filterCategory != null) {
-      let finalData = data.filter((product)=>(
+      let finalData = data.filter((product) => (
         filterCategory.includes(product.category)
       ))
       setFilterData(finalData)
@@ -65,29 +64,28 @@ const Collections = () => {
         {heading}
       </h1>
       <div>
-      <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center">
           <Filter setFilterCategory={setFilterCategory} filterCategory={filterCategory} />
         </div>
       </div>
       <br></br>
-      <section className="flex col-sm-4 col-xs-6 px-2">
-        <main className="w-full border border-gray-200 flex justify-evenly flex-wrap">
-          {loading && Array.from({ length: 8 }).map((_, i) => (
-            <ProductSkeleton key={i} />
-          ))}
-          {
-            !loading && !error && filterData?.length > 0 && filterData?.map((item, i) => (
-              <ProductCard key={i} imgUrl={item.image} data={item} />
-            ))
-          }
-          {
-            !loading && error && <NoItem />
-          }
+      <section className="w-full -mx-2 flex justify-evenly flex-wrap">
+        {loading && Array.from({ length: 8 }).map((_, i) => (
+          <ProductSkeleton key={i} />
+        ))}
+        {
+          !loading && !error && filterData?.length > 0 && filterData?.map((item, i) => (
+            <ProductCard key={i} imgUrl={item.image} data={item} />
+          ))
+        }
+        {
+          !loading && error && <NoItem />
+        }
 
-        </main>
       </section>
     </div>
   )
 }
 
 export default Collections
+
