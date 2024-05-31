@@ -2,10 +2,10 @@ import img2 from "../assets/all-Categories/monkey_allCategories1.jpeg"
 import img3 from "../assets/all-Categories/monkey_allCategories2.jpeg"
 import img4 from "../assets/all-Categories/monkey_allCategories3.jpeg"
 import img1 from "../assets/all-Categories/monkey_allCategories4.jpeg"
-import Load from "../components/ui/Load"
+//import Load from "../components/ui/Load"
 import Search from "../components/ui/Search"
 import Sponsor from "../components/ui/Sponsor"
-import Type from '../components/ui/Type'
+
 
 
 const ContactPage = () => {
@@ -72,14 +72,6 @@ const ContactPage = () => {
         <Search />
       </div>
       <br></br>
-      <div>
-        <div className="py-5 flex items-center justify-center">
-          <Type text="Upload Your Image" />
-          <div className="px-4">
-          </div>
-        </div>
-        <Load />
-      </div>
       <br></br>
       <Sponsor />
       <br></br>
