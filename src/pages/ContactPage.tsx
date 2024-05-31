@@ -16,10 +16,10 @@ const ContactPage = () => {
         </div>
         <br></br>
       <div className="flex w-full items-center justify-center">
-        <span className="absolute mx-auto py-4 flex border w-fit bg-gradient-to-r blur-xl from-yellow-800 via-yellow-800 to-yellow-800 bg-clip-text text-6xl box-content font-extrabold text-transparent text-center select-none">
+        <span className="absolute mx-auto py-4 flex border w-fit bg-gradient-to-r blur-xl from-teal-500 via-teal-500 to-teal-500 bg-clip-text text-6xl box-content font-extrabold text-transparent text-center select-none">
           Create Your Own Desgin Using AI
         </span>
-        <h1 className="relative top-0 w-fit h-auto py-4 justify-center flex bg-gradient-to-r items-center from-yellow-800 via-yellow-800 to-yellow-800 bg-clip-text text-6xl font-extrabold text-transparent text-center select-auto">
+        <h1 className="relative top-0 w-fit h-auto py-4 justify-center flex bg-gradient-to-r items-center from-teal-500 via-teal-500 to-teal-500 bg-clip-text text-6xl font-extrabold text-transparent text-center select-auto">
           Create Your Own Desgin Using AI
         </h1>
       </div>

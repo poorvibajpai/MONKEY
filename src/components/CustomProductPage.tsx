@@ -2,6 +2,9 @@ import React, { useEffect, useRef, useState } from 'react'
 // import MyButton from '../components/ui/MyButton'
 import { ColorResult, SketchPicker } from 'react-color'
 
+import HeroSection from './HeroSection';
+
+
 const galleryImg = "https://mockey.ai/assets/image-add-black.60f3b7ff.svg"
 const colorImg = "https://mockey.ai//assets/color.837f7442.svg"
 const customImg = "https://res.cloudinary.com/dhz7thzvq/image/upload/v1713011169/monkey/customize/custom-model-1.png";
@@ -55,7 +58,9 @@ const CustomProductPage = () => {
     setSelectedColor(e.hex)
   }
   return (
-    <section className='grid grid-cols-4 space-x-6'>
+   <div>
+     <HeroSection />
+     <section className='grid grid-cols-4 space-x-6'>
       <div className="left col-span-1 h-[750px] border rounded-lg drop-shadow-lg bg-white shadow-xl">
         <div className='border-b-2 p-5'>
           <div className='flex items-center gap-1'>
@@ -98,6 +103,9 @@ const CustomProductPage = () => {
         </canvas>
       </div>
     </section>
+    <br></br>
+   
+   </div>
   )
 }
 

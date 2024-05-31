@@ -16,11 +16,11 @@
     to: '/collections/womens',
   },
   {
-    name: 'Rich Collection',
-    to: '/collections/rich-collection',
+    name: 'Custom Design',
+    to: '/Custom',
   },
   {
-    name: 'About Us',
+    name: 'Premium',
     to: '/contact-us',
   },
 ]
