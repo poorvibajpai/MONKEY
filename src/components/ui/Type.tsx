@@ -6,7 +6,7 @@ interface AutotypeHeadingProps {
 }
 
 const AutotypeHeading: React.FC<AutotypeHeadingProps> = ({ text }) => {
-  const [displayText, setDisplayText] = useState('');
+  const [displayText, setDisplayText] = useState(text);
 
   useEffect(() => {
     let index = 0;

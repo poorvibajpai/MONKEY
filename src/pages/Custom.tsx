@@ -7,8 +7,8 @@ const Custom = () => {
     <div>
       <HeroSection />
       <div className="py-5 flex items-center justify-center">
-          <Type text="Sample T-Shirt Mockup Templates " />
-          </div>
+        <Type text="Sample T-Shirt Mockup Templates " />
+      </div>
       <Example />
       <br></br>
     </div>

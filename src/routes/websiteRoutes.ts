@@ -1,7 +1,7 @@
 import { lazy } from "react";
 import CheckoutSuccess from "../pages/CheckoutSuccess";
-import Custom from "../pages/Custom";
 
+const Custom = lazy(() => import("../pages/Custom"));
 const Collections = lazy(() => import("../pages/Collections"));
 const ContactPage = lazy(() => import("../pages/ContactPage"));
 const HomePage = lazy(() => import("../pages/HomePage"));
@@ -9,7 +9,8 @@ const ProductPage = lazy(() => import("../pages/ProductPage"));
 const SignInPage = lazy(() => import("../pages/SignInPage"));
 const SignUpPage = lazy(() => import("../pages/SignUpPage"));
 const CartPage = lazy(() => import("../pages/CartPage"));
-//const CustomProductPage = lazy(() => import("../components/CustomProductPage"));
+const CustomProductPage = lazy(() => import("../components/CustomProductPage"));
+// import CustomProductPage from "../components/CustomProductPage";
 
 const websiteRoutes = [
  {
@@ -45,6 +46,10 @@ const websiteRoutes = [
  {
   path: "/custom",
   element: Custom,
+ },
+ {
+  path: "/custom/create-custom",
+  element: CustomProductPage,
  },
  {
   path: "/success-payment/:sessionId",
