@@ -45,10 +45,6 @@ const ProductCard = ({ imgUrl, data }: ProductProps) => {
           </div>
           <div className="flex py-2">
             <h1 className='text-black md:text-base lg:text-lg xl:text-xl font-light'>₹ {data?.price || "999"}</h1>
-            <h1 className="font-segoe pl-2 text-sm text-red-400 line-through md:text-base lg:text-lg xl:text-xl">
-              ₹ {data?.price && data?.price + 1500 || ""}
-            </h1>
-
           </div>
           <button className="mt-2 w-full inline-flex items-center justify-center rounded-xl bg-red-500 py-3 px-6 font-dm text-base font-medium text-white shadow-xl shadow-red-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.02]">Add To Cart</button>
         </div>

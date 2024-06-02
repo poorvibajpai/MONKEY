@@ -20,7 +20,7 @@
     to: '/Custom',
   },
   {
-    name: 'Premium',
+    name: 'About Us',
     to: '/contact-us',
   },
 ]

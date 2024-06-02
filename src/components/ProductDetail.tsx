@@ -5,12 +5,12 @@ import { useDispatch } from "react-redux";
 import { addItemToCart } from "../redux/slices/cartSlice";
 
 import Question from "./ui/Question";
+import SizeSelector from "./ui/Size";
 
-export default function ProductDetail({data}: { data: ProductType}) {
+export default function ProductDetail({ data }: { data: ProductType }) {
+  const sizes = ['S', 'M', 'L', 'XL'];
   const [quantity, setQyantity] = useState(1);
   const dispatch = useDispatch();
-  
- 
 
   const addQyantity = () => {
     if (quantity >= 10) {
@@ -53,7 +53,7 @@ export default function ProductDetail({data}: { data: ProductType}) {
           </p>
           <div className="mt-5 flex items-center ">
             <div className="text-heading pr-2 text-base font-bold md:pr-0 md:text-xl lg:pr-2 lg:text-2xl 2xl:pr-0 2xl:text-4xl">
-            ₹{data?.price}
+              ₹{data?.price}
             </div>
             <span className="font-segoe pl-2 text-sm text-gray-400 line-through md:text-base lg:text-lg xl:text-xl">
               ₹{data?.oldPrice || data.price + 2500}
@@ -65,16 +65,7 @@ export default function ProductDetail({data}: { data: ProductType}) {
             <h3 className="text-heading mb-2.5 text-base font-semibold capitalize md:text-lg">
               size
             </h3>
-            <button className="colors -mr-3 flex flex-wrap">
-              {["S", "M", "L", "XL"].map((size) => (
-                <li
-                  key={size}
-                  className="text-heading mb-2 mr-2 flex h-9 w-9 cursor-pointer items-center justify-center rounded border border-black p-1 text-xs font-semibold uppercase transition duration-200 ease-in-out hover:border-black md:mb-3 md:mr-3 md:h-11 md:w-11 md:text-sm "
-                >
-                  {size}
-                </li>
-              ))}
-            </button>
+            <SizeSelector sizes={sizes} />
           </div>
         </div>
         <div className="space-s-4 3xl:pr-48 flex items-center gap-2 border-b border-gray-300 py-8  md:pr-32 lg:pr-12 2xl:pr-32">
@@ -124,3 +115,4 @@ export default function ProductDetail({data}: { data: ProductType}) {
     </div>
   );
 }
+

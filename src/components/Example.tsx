@@ -1,11 +1,11 @@
-import img1 from "../assets/all-Categories/monkey_allCategories1.jpeg"
-import img2 from "../assets/all-Categories/monkey_allCategories2.jpeg"
-import img3 from "../assets/all-Categories/monkey_allCategories3.jpeg"
-import img4 from "../assets/all-Categories/monkey_allCategories4.jpeg"
-import img5 from "../assets/all-Categories/monkey_allCategories5.jpeg"
-import img6 from "../assets/all-Categories/monkey_allCategories6.jpeg"
-import img7 from "../assets/all-Categories/monkey_allCategories7.jpeg"
-import img8 from "../assets/all-Categories/monkey_allCategories8.jpeg"
+import img1 from "../assets/all-Categories/WhatsApp Image 2024-06-02 at 2.42.08 PM.jpeg"
+import img2 from "../assets/all-Categories/WhatsApp Image 2024-06-02 at 2.42.09 PM (1).jpeg"
+import img3 from "../assets/all-Categories/WhatsApp Image 2024-06-02 at 2.42.09 PM (2).jpeg"
+import img4 from "../assets/all-Categories/WhatsApp Image 2024-06-02 at 2.42.09 PM.jpeg"
+import img5 from "../assets/all-Categories/WhatsApp Image 2024-06-02 at 2.42.10 PM (1).jpeg"
+import img6 from "../assets/all-Categories/WhatsApp Image 2024-06-02 at 2.42.10 PM (2).jpeg"
+import img7 from "../assets/all-Categories/WhatsApp Image 2024-06-02 at 2.42.10 PM.jpeg"
+import img8 from "../assets/all-Categories/WhatsApp Image 2024-06-02 at 2.42.11 PM.jpeg"
 
 const Example = () => {
   return (
