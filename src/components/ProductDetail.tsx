@@ -1,29 +1,16 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
-import { Navigate, useParams } from "react-router-dom";
-import Loader from "../components/ui/Loader";
-import useFetch from "../hooks/useFetch";
+
 import { addItemToCart } from "../redux/slices/cartSlice";
-import NoItem from "./ui/NoItem";
+
 import Question from "./ui/Question";
 
-export default function ProductDetail() {
+export default function ProductDetail({data}: { data: ProductType}) {
   const [quantity, setQyantity] = useState(1);
   const dispatch = useDispatch();
-
-  const { id } = useParams();
-  if (id == "undefined") {
-    return <Navigate to="/" />
-  }
-  const { data, error, loading }: { data: ProductType, error: any, loading: boolean } = useFetch(`/products/product?id=${id}`);
-  if (loading) {
-    return <Loader />
-  }
-  if (error || !data) {
-    return <NoItem />
-
-  }
+  
+ 
 
   const addQyantity = () => {
     if (quantity >= 10) {

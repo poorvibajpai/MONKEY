@@ -25,21 +25,27 @@ const HomePage = () => {
       <HeroSlider items={[img1, img2, img3]} />
 
       {/* ------------------ category jacket - sweatshirt - hoodies ------------------- */}
-
       <Items
-        list={["JACKETS", "SWEATSHIRTS", "HOODIES"]}
-        data={data || []}
-        error={error}
-        loading={loading}
+        list={["TSHIRTS", "JOGGERS", "SHIRTS"]}
+        data={latestData2 || []}
+        error={latestError}
+        loading={latestLoading}
         isPassingData={true}
-        defaultValue="JACKETS"
+        defaultValue="TSHIRTS"
       />
+     
       <Card />
       <br></br>
       <div className='flex justify-center items-center py-4'>
         <img src="https://sanfe.in/cdn/shop/collections/Sanfe-b1g1-banner.gif?v=1662710970"></img>
       </div>
       <HeroSlider items={[img4, img5]} />
+     
+      <br></br>
+      <div>
+        <img src="https://i.pinimg.com/originals/96/97/d5/9697d5435dca7c12b2a714ca16c50cf9.gif  "></img>
+      </div>
+      <br></br>
       <Items
         list={["JACKETS", "SWEATSHIRTS", "HOODIES"]}
         data={data || []}
@@ -49,19 +55,6 @@ const HomePage = () => {
         defaultValue="JACKETS"
       />
       <HeroSlider items={[img6, img7]} />
-      <br></br>
-      <div>
-        <img src="https://i.pinimg.com/originals/96/97/d5/9697d5435dca7c12b2a714ca16c50cf9.gif  "></img>
-      </div>
-      <br></br>
-      <Items
-        list={["TSHIRTS", "JOGGERS", "SHIRTS"]}
-        data={latestData2 || []}
-        error={latestError}
-        loading={latestLoading}
-        isPassingData={true}
-        defaultValue="TSHIRTS"
-      />
 
       <AllCategory />
       <div>
