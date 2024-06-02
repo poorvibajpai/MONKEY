@@ -7,8 +7,9 @@ import useFetch from "../hooks/useFetch";
 import { addItemToCart } from "../redux/slices/cartSlice";
 import NoItem from "./ui/NoItem";
 import Question from "./ui/Question";
-
+import Size from "./ui/Size"
 export default function ProductDetail() {
+  const sizes = ['S', 'M', 'L', 'XL'];
   const [quantity, setQyantity] = useState(1);
   const dispatch = useDispatch();
 
@@ -78,16 +79,7 @@ export default function ProductDetail() {
             <h3 className="text-heading mb-2.5 text-base font-semibold capitalize md:text-lg">
               size
             </h3>
-            <button className="colors -mr-3 flex flex-wrap">
-              {["S", "M", "L", "XL"].map((size) => (
-                <li
-                  key={size}
-                  className="text-heading mb-2 mr-2 flex h-9 w-9 cursor-pointer items-center justify-center rounded border border-black p-1 text-xs font-semibold uppercase transition duration-200 ease-in-out hover:border-black md:mb-3 md:mr-3 md:h-11 md:w-11 md:text-sm "
-                >
-                  {size}
-                </li>
-              ))}
-            </button>
+<Size sizes={sizes}/>
           </div>
         </div>
         <div className="space-s-4 3xl:pr-48 flex items-center gap-2 border-b border-gray-300 py-8  md:pr-32 lg:pr-12 2xl:pr-32">
@@ -137,3 +129,4 @@ export default function ProductDetail() {
     </div>
   );
 }
+
