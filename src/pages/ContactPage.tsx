@@ -1,7 +1,4 @@
-import img2 from "../assets/all-Categories/monkey_allCategories1.jpeg"
-import img3 from "../assets/all-Categories/monkey_allCategories2.jpeg"
-import img4 from "../assets/all-Categories/monkey_allCategories3.jpeg"
-import img1 from "../assets/all-Categories/monkey_allCategories4.jpeg"
+
 //import Load from "../components/ui/Load"
 import Search from "../components/ui/Search"
 import Sponsor from "../components/ui/Sponsor"
@@ -11,68 +8,6 @@ import Sponsor from "../components/ui/Sponsor"
 const ContactPage = () => {
   return (
     <div>
-        <div>
-          <img src="https://images.bewakoof.com/uploads/grid/app/CustomisationCampaignPage-desktop-01-1687842231.jpg"></img>
-        </div>
-        <br></br>
-      <div className="flex w-full items-center justify-center">
-        <span className="absolute mx-auto py-4 flex border w-fit bg-gradient-to-r blur-xl from-teal-500 via-teal-500 to-teal-500 bg-clip-text text-6xl box-content font-extrabold text-transparent text-center select-none">
-          Create Your Own Desgin Using AI
-        </span>
-        <h1 className="relative top-0 w-fit h-auto py-4 justify-center flex bg-gradient-to-r items-center from-teal-500 via-teal-500 to-teal-500 bg-clip-text text-6xl font-extrabold text-transparent text-center select-auto">
-          Create Your Own Desgin Using AI
-        </h1>
-      </div>
-      <section className="overflow-hidden">
-        <div className="max-w-screen-xl 2xl:max-w-screen-3xl px-8 md:px-12 mx-auto py-12 lg:py-24 space-y-24 h-svh flex flex-col justify-center">
-          <div className="flex flex-col sm:flex-row mx-auto">
-            {/*- Starts component */}{" "}
-            <a href="#_">
-              {" "}
-              <img
-                src={img1}
-                className="rounded-xl  rotate-6 hover:rotate-0 duration-500 hover:-translate-y-12 h-full w-full object-cover hover:scale-150 transform origin-bottom"
-                alt="#_"
-              />{" "}
-            </a>
-            <a href="#_">
-              {" "}
-              <img
-                src={img2}
-                className="rounded-xl  -rotate-12 hover:rotate-0 duration-500 hover:-translate-y-12 h-full w-full object-cover hover:scale-150 transform origin-bottom"
-                alt="#_"
-              />{" "}
-            </a>
-            <a href="#_">
-              {" "}
-              <img
-                src={img3}
-                className="rounded-xl  rotate-6 hover:rotate-0 duration-500 hover:-translate-y-12 h-full w-full object-cover hover:scale-150 transform origin-bottom"
-                alt="#_"
-              />{" "}
-            </a>
-            <a href="#_">
-              {" "}
-              <img
-                src={img4}
-                className="rounded-xl  -rotate-12 hover:rotate-0 duration-500 hover:-translate-y-12 h-full w-full object-cover hover:scale-150 transform origin-bottom"
-                alt="#_"
-              />{" "}
-            </a>
-            {/*- Ends component */}
-          </div>
-        </div>
-      </section>
-      <div className="flex justify-center items-center text-xl p-5 font-light text-balance text-center text-opacity-40">
-        <span>"Revolutionize your wardrobe with our AI-powered tool! Seamlessly merge cutting-edge text with captivating imagery to create stunning T-shirt designs that reflect the latest fashion trends.
-          Effortlessly express your unique style with personalized creations that stand out in any crowd. Elevate your fashion game with ease!"</span>
-      </div>
-      <br></br>
-      <div className="py-5">
-        <Search />
-      </div>
-      <br></br>
-      <br></br>
       <Sponsor />
       <br></br>
       <section className="text-gray-700 body-font">
