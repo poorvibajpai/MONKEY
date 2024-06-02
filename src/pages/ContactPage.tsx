@@ -1,6 +1,5 @@
 
 //import Load from "../components/ui/Load"
-import Search from "../components/ui/Search"
 import Sponsor from "../components/ui/Sponsor"
 
 
