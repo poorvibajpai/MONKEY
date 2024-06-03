@@ -1,9 +1,4 @@
-
-//import Load from "../components/ui/Load"
 import Sponsor from "../components/ui/Sponsor"
-
-
-
 const ContactPage = () => {
   return (
     <div>
@@ -73,50 +68,41 @@ const ContactPage = () => {
       <div className="flex justify-items-center items-center space-x-10">
 
         <div
-          className="group flex flex-col justify-start items-start gap-2 w-96 h-56 duration-500 relative rounded-lg p-4 bg-blue-500 hover:-translate-y-2 hover:shadow-xl shadow-blue-600"
+          className="group flex flex-col justify-start items-start gap-2 w-96 h-56 duration-500 relative rounded-lg p-4 bg-green-500 hover:-translate-y-2 hover:shadow-xl shadow-green-600"
         >
           <div
-            className="absolute duration-700 shadow-md group-hover:-translate-y-4 group-hover:-translate-x-4 -bottom-10 -right-10 w-1/2 h-1/2 rounded-lg bg-cyan-500"
+            className="absolute duration-700 shadow-md group-hover:-translate-y-4 group-hover:-translate-x-4 -bottom-10 -right-10 w-1/2 h-1/2 rounded-lg bg-green-500"
 
           ></div>
           <h2 className="text-2xl font-bold mb-2 text-white">Our Vision</h2>
           <p className="text-gray-200 line-clamp-3">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean convallis
-            magna quis lectus fermentum, quis scelerisque orci pellentesque. Duis id
-            porta justo. Sed ac enim id justo tincidunt hendrerit id ac lectus.
-            Pellentesque maximus posuere tortor vitae consequat.
+          Our target is to connect diverse, quality-focused shoppers with top-tier products, ensuring exceptional value, satisfaction, and a seamless buying experience.
           </p>
 
         </div>
         <div
-          className="group flex flex-col justify-start items-start gap-2 w-96 h-56 duration-500 relative rounded-lg p-4 bg-blue-500 hover:-translate-y-2 hover:shadow-xl shadow-blue-600"
+          className="group flex flex-col justify-start items-start gap-2 w-96 h-56 duration-500 relative rounded-lg p-4 bg-teal-500 hover:-translate-y-2 hover:shadow-xl shadow-teal-600"
         >
           <div
-            className="absolute duration-700 shadow-md group-hover:-translate-y-4 group-hover:-translate-x-4 -bottom-10 -right-10 w-1/2 h-1/2 rounded-lg bg-cyan-500"
+            className="absolute duration-700 shadow-md group-hover:-translate-y-4 group-hover:-translate-x-4 -bottom-10 -right-10 w-1/2 h-1/2 rounded-lg bg-teal-500"
 
           ></div>
-          <h2 className="text-2xl font-bold mb-2 text-white">Our Vision</h2>
+          <h2 className="text-2xl font-bold mb-2 text-white">Our Sale</h2>
           <p className="text-gray-200 line-clamp-3">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean convallis
-            magna quis lectus fermentum, quis scelerisque orci pellentesque. Duis id
-            porta justo. Sed ac enim id justo tincidunt hendrerit id ac lectus.
-            Pellentesque maximus posuere tortor vitae consequat.
+          Unmissable deals await! Enjoy exclusive discounts, limited-time offers, and incredible savings on your favorite products during our mega sale.
           </p>
 
         </div>
         <div
-          className="group flex flex-col justify-start items-start gap-2 w-96 h-56 duration-500 relative rounded-lg p-4 bg-blue-500 hover:-translate-y-2 hover:shadow-xl shadow-blue-600"
+          className="group flex flex-col justify-start items-start gap-2 w-96 h-56 duration-500 relative rounded-lg p-4 bg-purple-500 hover:-translate-y-2 hover:shadow-xl shadow-purple-600"
         >
           <div
-            className="absolute duration-700 shadow-md group-hover:-translate-y-4 group-hover:-translate-x-4 -bottom-10 -right-10 w-1/2 h-1/2 rounded-lg bg-cyan-500"
+            className="absolute duration-700 shadow-md group-hover:-translate-y-4 group-hover:-translate-x-4 -bottom-10 -right-10 w-1/2 h-1/2 rounded-lg bg-purple-500"
 
           ></div>
           <h2 className="text-2xl font-bold mb-2 text-white">Our Target</h2>
           <p className="text-gray-200 line-clamp-3">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean convallis
-            magna quis lectus fermentum, quis scelerisque orci pellentesque. Duis id
-            porta justo. Sed ac enim id justo tincidunt hendrerit id ac lectus.
-            Pellentesque maximus posuere tortor vitae consequat.
+          Empowering every shopper with seamless, secure, and innovative online experiences, transforming dreams into reality with every click.
           </p>
         </div>
       </div>

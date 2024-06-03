@@ -20,6 +20,9 @@ const Sponsor: React.FC = () => {
       <div className="m-4">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Vercel_logo_black.svg/2560px-Vercel_logo_black.svg.png" alt="Render" className="h-11" />
       </div>
+      <div className="m-4">
+        <img src="https://firebase.google.com/images/social.png" alt="FirebASE" className="h-[11vh]" />
+      </div>
 
     </div>
    </div>

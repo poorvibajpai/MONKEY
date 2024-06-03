@@ -7,7 +7,7 @@ import { getFirestore } from "firebase/firestore";
 const firebaseConfig = {
   apiKey: "AIzaSyCITF5Fc7CyEihTeQ1ZpRZ9UKTM2pYrYHY",
   authDomain: "monkeycloth-16920.firebaseapp.com",
-  databaseURL: "/USERDATA/PuuC2bx4URmAQPTh6T9r",
+  databaseURL: "https://monkeycloth-16920-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "monkeycloth-16920",
   storageBucket: "monkeycloth-16920.appspot.com",
   messagingSenderId: "246772292078",
