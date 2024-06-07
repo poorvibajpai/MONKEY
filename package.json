@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mantine/core": "^7.10.1",
+    "@mantine/hooks": "^7.10.1",
     "@reduxjs/toolkit": "^2.2.2",
     "@stripe/stripe-js": "^3.4.1",
     "apexcharts": "^3.45.2",
