@@ -1,7 +1,9 @@
+import ContactHero from "../components/ContactHero"
 import Sponsor from "../components/ui/Sponsor"
 const ContactPage = () => {
   return (
     <div>
+      <ContactHero />
       <Sponsor />
       <br></br>
       <section className="text-gray-700 body-font">
