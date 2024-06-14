@@ -9,8 +9,8 @@ import img8 from "../assets/all-Categories/i.jpeg"
 
 const Example = () => {
   return (
-    <div>
-     <div className="flex justify-center space-x-5">
+      <div>
+     <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 md:gap-6 xl:gap-8">
         <div className="relative h-[400px] w-[300px] rounded-md">
       <img
         src={img1}
@@ -42,7 +42,7 @@ const Example = () => {
     </div>
     </div>
     <br></br>
-    <div className="flex justify-center space-x-5">
+    <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 md:gap-6 xl:gap-8">
         <div className="relative h-[400px] w-[300px] rounded-md">
       <img
         src={img5}
@@ -74,6 +74,8 @@ const Example = () => {
     </div>
     </div>
     </div>
+
+   
   )
 }
 

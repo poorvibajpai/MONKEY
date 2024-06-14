@@ -96,7 +96,7 @@ const Items = ({ list, data, error, loading, isPassingData = false, defaultValue
   if (!isPassingData) {
     // dummy data
     return (
-      <div className="flex justify-evenly flex-wrap">
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 my-2">
         {tempData.map((item, i) => (
           <ProductCard key={i} imgUrl={item.imgUrl} />
         ))

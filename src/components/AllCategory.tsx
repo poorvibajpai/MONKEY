@@ -46,10 +46,9 @@ const AllCategory = () => {
   return (
     <div className='my-10'>
       <h1 className='text-3xl text-center my-10'>All Categories</h1>
-      <div className='flex mx-auto justify-evenly flex-wrap'>
+      <div className='grid grid-cols-2 gap-4 sm:grid-cols-4 md:gap-6 xl:gap-8'>
         {data.map((item, i) => (
-          <div className='w-[300px]  h-[350px] my-2 relative overflow-hidden' key={i}>
-            {/* <img src="https://overlays.co/cdn/shop/files/tshirts.jpg?v=1703314947&width=800" alt="t-shirts" className='w-full h-full transition-transform duration-1000 ease-in-out cursor-pointer hover:transform hover:scale-110' /> */}
+          <div key={i}>
             <img src={item.imgUrl} alt="t-shirts" className='w-full h-full transition-transform duration-1000 ease-in-out cursor-pointer hover:transform hover:scale-110' />
             <h1 className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl font-bold text-white'></h1>
           </div>

@@ -22,7 +22,7 @@ const HomePage = () => {
 
   return (
     <div className="">
-      {/* <HeroSlider items={[img1, img2, img3]} /> */}
+
       <HeroSlider items={[img1, img2, img3]} />
 
       {/* ------------------ category jacket - sweatshirt - hoodies ------------------- */}
@@ -40,7 +40,7 @@ const HomePage = () => {
       <HeroSlider items={[img4, img5]} />
      
       <br></br>
-      <Items
+      <Items 
         list={["JACKETS", "SWEATSHIRTS", "HOODIES"]}
         data={data || []}
         error={error}
