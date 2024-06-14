@@ -25,7 +25,7 @@ export default function ProductPage() {
       <ProductDetail data={data?.product}/>
       <Review/>
       <h1 className="text-3xl my-3 font-serif border-b-2 border-b-zinc-700 inline-block ">Similar Products</h1>
-      <div className="flex flex-wrap justify-evenly">
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 my-2">
         {!loading && !error && data?.similarProducts?.length! > 0 ? data?.similarProducts?.map((item, i) => (
             <ProductCard key={i} imgUrl={item.image} data={item} />
         ))
