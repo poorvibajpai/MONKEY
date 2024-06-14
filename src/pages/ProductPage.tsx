@@ -33,7 +33,6 @@ export default function ProductPage() {
         }
       </div>
       <br /><br /><br />
-
     </div>
   );
 }

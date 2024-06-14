@@ -64,7 +64,7 @@ const Collections = () => {
     {heading}
   </h1>
   <div className="px-4">
-    <div className="flex justify-center items-cente">
+    <div className="flex justify-center items-center">
       <Filter setFilterCategory={setFilterCategory} filterCategory={filterCategory} />
     </div>
   </div>

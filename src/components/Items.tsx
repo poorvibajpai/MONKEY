@@ -135,7 +135,7 @@ const Items = ({ list, data, error, loading, isPassingData = false, defaultValue
       </ul>
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 my-2">
         {!loading && !error && filterData?.length! > 0 ? filterData?.map((item, i) => (
-            <ProductCard imgUrl={item.image} data={item} key={i}/>
+             <ProductCard key={i} imgUrl={item.image} data={item} />
         ))
           : <NoItem />
         }
