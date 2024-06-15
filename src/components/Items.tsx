@@ -116,7 +116,7 @@ const Items = ({ list, data, error, loading, isPassingData = false, defaultValue
 
   if (loading) {
     return (
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 my-2" >
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 my-2">
         {Array.from({ length: 8 }).map((_, i) => (
           <ProductSkeleton key={i} />
         ))}
@@ -130,7 +130,7 @@ const Items = ({ list, data, error, loading, isPassingData = false, defaultValue
     <div className="my-10 -mx-3">
       <ul className="flex w-full my-10 justify-center space-x-5">
         {list?.map((name) =>
-          <li key={name} onClick={(e: any) => setlistCategory(e.target.innerText.toLowerCase())} className={`cursor-pointer text-lg font-semibold ${listCategory == name.toLowerCase() && "text-red-500 border-b-2 border-red-500" }`}>{name}</li>
+          <li key={name} onClick={(e: any) => setlistCategory(e.target.innerText.toLowerCase())} className={`cursor-pointer text-lg font-semibold ${listCategory == name.toLowerCase() && "text-red-500 border-b-2 border-red-500"}`}>{name}</li>
         )}
       </ul>
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 my-2">

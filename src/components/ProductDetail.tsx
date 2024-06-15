@@ -105,10 +105,10 @@ export default function ProductDetail({ data }: { data: ProductType }) {
           <h1 className="flex items-center justify-center font-large">100% secure Payment</h1>
           <br></br>
           <div className="flex items-center space-x-6">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShFa35_j_0an5VqFj5aYhScHBOv-Cx1CrUmO7nvK2_Jw&s" alt="UPI" className="h-8 w-[20%]" />
-            <img src="https://w7.pngwing.com/pngs/345/591/png-transparent-phonepe-hd-logo.png" alt="UPI" className="h-8 w-[20%]" />
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRB8h1fM04EJwtrOLZdZx1wE7_ye3pIwp8T82FWnm8j&s" alt="Credit Card" className="h-8 w-[20%]" />
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLbQ6m1CMvg3-4eAzXtExE1qmsQqoEEkjblV9XG3xvPQ&s" alt="Mastercard" className="h-8 w-[20%]" />
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShFa35_j_0an5VqFj5aYhScHBOv-Cx1CrUmO7nvK2_Jw&s" alt="UPI" className="h-8 w-[25%]" />
+            <img src="https://w7.pngwing.com/pngs/345/591/png-transparent-phonepe-hd-logo.png" alt="UPI" className="h-8 w-[25%]" />
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRB8h1fM04EJwtrOLZdZx1wE7_ye3pIwp8T82FWnm8j&s" alt="Credit Card" className="h-8 w-[25%]" />
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLbQ6m1CMvg3-4eAzXtExE1qmsQqoEEkjblV9XG3xvPQ&s" alt="Mastercard" className="h-8 w-[25%]" />
           </div>
         </div>
       </div>
