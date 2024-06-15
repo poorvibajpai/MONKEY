@@ -8,12 +8,12 @@ const HeroSection = () => {
         <div className="bg-white flex relative z-20 items-center overflow-hidden">
           <div className="container mx-auto px-6 flex flex-col sm:flex-row relative py-16">
             <div className="sm:w-2/3 lg:w-2/5 flex flex-col relative z-20">
-              <span className="w-20 h-2 bg-gray-800 dark:bg-white mb-8 sm:mb-12"></span>
-              <h1 className="font-bebas-neue uppercase text-4xl sm:text-6xl lg:text-8xl font-black flex flex-col leading-none dark:text-white text-gray-800">
+              <span className="w-20 h-2 bg-white mb-8 sm:mb-12"></span>
+              <h1 className="font-bebas-neue uppercase text-4xl sm:text-6xl lg:text-8xl font-black flex flex-col leading-none  text-gray-800">
                 Custom
                 <span className="text-3xl sm:text-5xl lg:text-7xl">Design</span>
               </h1>
-              <p className="text-xs sm:text-sm lg:text-base text-gray-700 dark:text-white mt-4 sm:mt-6">
+              <p className="text-xs sm:text-sm lg:text-base text-gray-700  mt-4 sm:mt-6">
                 Dimension of reality that makes change possible and understandable. An
                 indefinite and homogeneous environment in which natural events and
                 human existence take place.
