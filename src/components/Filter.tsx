@@ -27,7 +27,7 @@ export default function Filter({setFilterCategory , filterCategory}:Props) {
     <section className="flex justify-center item -center w-full h-auto sm:h-[8vh] border border-gray-200 p-2 sm:p-4">
     {filters.map((filter) => (
       <div key={filter.id} className="flex flex-col sm:flex-row justify-center items-center sm:space-x-10 space-y-4 sm:space-y-0">
-        <ul className="flex flex-wrap items-center justify-center sm:space-x-10 p-2">
+        <ul className="grid grid-cols-3 lg:grid-cols-6 sm:grid-cols-3 ">
           {filter.options.map((value) => (
             <li key={value} className="p-2">
               <div className="flex items-center">
