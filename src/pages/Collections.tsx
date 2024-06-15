@@ -56,7 +56,7 @@ const Collections = () => {
   }, [loading, filterCategory, category, data])
 
   return (
-    <div className="mb-28">
+    <div className="mb-27">
       <h1 className="text-4xl text-center my-10">
         {heading}
       </h1>
