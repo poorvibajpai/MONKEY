@@ -24,9 +24,9 @@ export default function Filter({setFilterCategory , filterCategory}:Props) {
   }
 
   return (
-    <section className="flex justify-center item -center w-full h-auto border border-gray-200 p-2 sm:p-4">
+    <section className="flex justify-center item-center w-full h-auto border border-gray-200 p-2 sm:p-4">
     {filters.map((filter) => (
-      <div key={filter.id} className="flex justify-center items-center">
+      <div key={filter.id} className="flex justify-center space-x-6 items-center">
         <ul className="grid grid-cols-3 lg:grid-cols-6 sm:grid-cols-3 ">
           {filter.options.map((value) => (
             <li key={value} className="p-1">
@@ -37,7 +37,7 @@ export default function Filter({setFilterCategory , filterCategory}:Props) {
                   type="checkbox"
                   value={value}
                   onChange={handleOnchange}
-                  className="h-5 w-5 sm:h-5 sm:w-5 rounded accent-yellow-500"
+                  className="h-5 w-5 sm:h-5 border rounded-md sm:w-5 hover:bg-gray-100  accent-cyan-400"
                 />
                 <label
                   htmlFor={`${filter.id}-${value}`}

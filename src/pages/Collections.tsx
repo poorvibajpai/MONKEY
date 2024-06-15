@@ -63,7 +63,7 @@ const Collections = () => {
   <h1 className="text-4xl text-center my-10">
     {heading}
   </h1>
-  <div className="p-0 lg:px-4">
+  <div className="p-0 lg:px-6">
     <div className="flex justify-center items-center">
       <Filter setFilterCategory={setFilterCategory} filterCategory={filterCategory} />
     </div>
