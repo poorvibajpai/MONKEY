@@ -37,12 +37,9 @@ const Collections = () => {
 
   const { data, error, loading }: { data: ProductType[], error: any, loading: boolean } = useFetch(url);
   const [filterCategory, setFilterCategory] = useState<string[] | null>(null)
-  const [filterData, setFilterData] = useState(data)
-  if (error) {
-    return <NoItem />
-  }
-  useEffect(() => {
+  const [filterData, setFilterData] = useState<ProductType[] | null>(null)
 
+  useEffect(() => {
     if (!error && !loading && !filterCategory || filterCategory?.length == 0) {
       setFilterData(data)
       return;
@@ -59,30 +56,30 @@ const Collections = () => {
   }, [loading, filterCategory, category, data])
 
   return (
-<div className="mb-28">
-  <h1 className="text-4xl text-center my-10">
-    {heading}
-  </h1>
-  <div className="px-4">
-    <div className="flex justify-center items-center">
-      <Filter setFilterCategory={setFilterCategory} filterCategory={filterCategory} />
-    </div>
-  </div>
+    <div className="mb-28">
+      <h1 className="text-4xl text-center my-10">
+        {heading}
+      </h1>
+      <div className="p-0 lg:px-4">
+        <div className="flex justify-center items-center">
+          <Filter setFilterCategory={setFilterCategory} filterCategory={filterCategory} />
+        </div>
+      </div>
       <br></br>
-      <section  className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 my-2">
-        {loading && Array.from({ length: 8 }).map((_, i) => (
+      <section className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 my-2">
+        {loading && Array.from({ length: 10 }).map((_, i) => (
           <ProductSkeleton key={i} />
         ))}
         {
-          !loading && !error && filterData?.length > 0 && filterData?.map((item, i) => (
+          !loading && !error && filterData && filterData?.length > 0 && filterData?.map((item, i) => (
             <ProductCard key={i} imgUrl={item.image} data={item} />
           ))
         }
-        {
-          !loading && error && <NoItem />
-        }
-
       </section>
+      {
+        !loading && error && <NoItem />
+      }
+
     </div>
   )
 }
