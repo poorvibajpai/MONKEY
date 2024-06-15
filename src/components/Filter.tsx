@@ -1,4 +1,3 @@
-// import React from 'react'
 
 const filters = [
   {
@@ -23,13 +22,14 @@ export default function Filter({setFilterCategory , filterCategory}:Props) {
       setFilterCategory(filterCategory?.filter((item)=>item != e.target.value))
     }
   }
+
   return (
-    <section className="flex justify-center item -center w-full h-auto sm:h-[8vh] border border-gray-200 p-2 sm:p-4">
+    <section className="flex justify-center item -center w-full h-auto border border-gray-200 p-2 sm:p-4">
     {filters.map((filter) => (
-      <div key={filter.id} className="flex flex-col sm:flex-row justify-center items-center sm:space-x-10 space-y-4 sm:space-y-0">
+      <div key={filter.id} className="flex justify-center items-center">
         <ul className="grid grid-cols-3 lg:grid-cols-6 sm:grid-cols-3 ">
           {filter.options.map((value) => (
-            <li key={value} className="p-2">
+            <li key={value} className="p-1">
               <div className="flex items-center">
                 <input
                   id={`${filter.id}-${value}`}
@@ -37,11 +37,11 @@ export default function Filter({setFilterCategory , filterCategory}:Props) {
                   type="checkbox"
                   value={value}
                   onChange={handleOnchange}
-                  className="h-5 w-5 rounded border-gray-300 accent-teal-600"
+                  className="h-5 w-5 sm:h-5 sm:w-5 rounded accent-yellow-500"
                 />
                 <label
                   htmlFor={`${filter.id}-${value}`}
-                  className="ml-3 text-sm font-medium text-red-500 capitalize"
+                  className="ml-3 text-sm font-medium text-black capitalize"
                 >
                   {value}
                 </label>
