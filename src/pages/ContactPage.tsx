@@ -2,7 +2,7 @@ import ContactHero from "../components/ContactHero"
 import Sponsor from "../components/ui/Sponsor"
 const ContactPage = () => {
   return (
-    <div>
+    <div className="overflow-auto">
       <ContactHero />
       <Sponsor />
       <br></br><br></br><br></br><br></br><br></br>

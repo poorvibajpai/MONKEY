@@ -5,17 +5,14 @@ import Load from "../components/ui/Load"
 
 const Custom = () => {
   return (
-    <div>
+    <div className="overflow-hidden">
       <HeroSection />
       <div>
           <img src="https://images.bewakoof.com/uploads/grid/app/CustomisationCampaignPage-desktop-01-1687842231.jpg"></img>
         </div>
         <br></br>
-        <div className="flex w-full items-center justify-center">
-        <span className="absolute mx-auto py-4 flex border w-fit bg-gradient-to-r blur-xl from-teal-500 via-teal-500 to-teal-500 bg-clip-text text-6xl box-content font-extrabold text-transparent text-center select-none">
-          Upload Your Design 
-        </span>
-        <h1 className="relative top-0 w-fit h-auto py-4 justify-center flex bg-gradient-to-r items-center from-teal-500 via-teal-500 to-teal-500 bg-clip-text text-6xl font-extrabold text-transparent text-center select-auto">
+        <div className="flex items-center justify-center w-full ">
+        <h1 className=" top-0 w-fit h-auto py-4 flex  bg-gradient-to-r from-black via-black to-black bg-clip-text text-6xl font-bold text-transparent text-center select-auto">
         Upload Your Design 
         </h1>
       </div>

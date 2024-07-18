@@ -56,7 +56,7 @@ const Collections = () => {
   }, [loading, filterCategory, category, data])
 
   return (
-   
+
 
       <div className="mb-28">
         <h1 className="text-4xl text-center my-10">
@@ -66,6 +66,7 @@ const Collections = () => {
           <div className="flex justify-center items-center">
             <Filter setFilterCategory={setFilterCategory} filterCategory={filterCategory} />
           </div>
+
         </div>
 
         <br></br>
@@ -83,7 +84,8 @@ const Collections = () => {
           !loading && error && <NoItem />
         }
 
-      </div>
+
+    </div>
   )
 }
 

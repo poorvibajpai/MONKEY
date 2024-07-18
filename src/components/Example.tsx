@@ -11,29 +11,29 @@ const Example = () => {
   return (
       <div>
      <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 md:gap-6 xl:gap-8">
-        <div className="relative h-[400px] w-[300px] rounded-md">
+        <div className="relative rounded-md">
       <img
         src={img1}
         alt="AirMax Pro"
-        className="z-0 h-full w-full rounded-md object-cover"
+        className="z-0 rounded-md object-cover"
       />
     </div>
-    <div className="relative h-[400px] w-[300px] rounded-md">
+    <div className="relative  rounded-md">
       <img
         src={img2}
         alt="AirMax Pro"
-        className="z-0 h-full w-full rounded-md object-cover"
+        className="z-0 w-full rounded-md object-cover"
       />
     
     </div>
-    <div className="relative h-[400px] w-[300px] rounded-md">
+    <div className="relative  rounded-md">
       <img
         src={img3}
         alt="AirMax Pro"
         className="z-0 h-full w-full rounded-md object-cover"
       />
     </div>
-    <div className="relative h-[400px] w-[300px] rounded-md">
+    <div className="relative rounded-md">
       <img
         src={img4}
         alt="AirMax Pro"
@@ -43,14 +43,14 @@ const Example = () => {
     </div>
     <br></br>
     <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 md:gap-6 xl:gap-8">
-        <div className="relative h-[400px] w-[300px] rounded-md">
+        <div className="relative rounded-md">
       <img
         src={img5}
         alt="AirMax Pro"
         className="z-0 h-full w-full rounded-md object-cover"
       />
     </div>
-    <div className="relative h-[400px] w-[300px] rounded-md">
+    <div className="relative rounded-md">
       <img
         src={img6}
         alt="AirMax Pro"
@@ -58,18 +58,18 @@ const Example = () => {
       />
     
     </div>
-    <div className="relative h-[400px] w-[300px] rounded-md">
+    <div className="relative rounded-md">
       <img
         src={img7}
         alt="AirMax Pro"
         className="z-0 h-full w-full rounded-md object-cover"
       />
     </div>
-    <div className="relative h-[400px] w-[300px] rounded-md">
+    <div className="relative rounded-md">
       <img
         src={img8}
         alt="AirMax Pro"
-        className="z-0 h-full w-full rounded-md object-cover"
+        className="z-0 h-full rounded-md object-cover"
       />
     </div>
     </div>
