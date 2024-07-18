@@ -10,8 +10,8 @@ import model3 from "../assets/custom-models/model-3.png"
 import model4 from "../assets/custom-models/model-4.png"
 import model5 from "../assets/custom-models/model-5.png"
 
-const galleryImg = "https://mockey.ai/assets/image-add-black.60f3b7ff.svg";
-const colorImg = "https://mockey.ai//assets/color.837f7442.svg";
+// const galleryImg = "https://mockey.ai/assets/image-add-black.60f3b7ff.svg";
+// const colorImg = "https://mockey.ai//assets/color.837f7442.svg";
 
 const modelsData = [
   {
