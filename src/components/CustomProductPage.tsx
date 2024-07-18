@@ -260,8 +260,8 @@ const CustomProductPage = () => {
         <div className="left col-span-1 h-[750px] border rounded-lg drop-shadow-lg bg-white shadow-xl">
           <div className='border-b-2 p-5'>
             <div className='flex items-center gap-1'>
-              <img src={galleryImg} alt="gallery-img" className='w-[20px] aspect-square object-contain' />
-              <h1 className='text-lg font-medium'>Choose Your Desgine</h1>
+              {/* <img src={galleryImg} alt="gallery-img" className='w-[20px] aspect-square object-contain' /> */}
+              <h1 className='text-lg font-semibold'>Choose Your Desgine</h1>
             </div>
             <div className='my-5'>
               <label htmlFor="imageUpload" className='flex w-full items-center gap-2 justify-center rounded bg-pink-500 hover:opacity-85 cursor-pointer p-3 font-medium text-gray text-white'>
@@ -276,8 +276,8 @@ const CustomProductPage = () => {
 
           <div className='border-b-2 p-5'>
             <div className='flex items-center gap-1'>
-              <img src={colorImg} alt="gallery-img" className='w-[20px] aspect-square object-contain' />
-              <h1 className='text-lg font-medium'>Choose Your Colour</h1>
+              {/* <img src={colorImg} alt="gallery-img" className='w-[20px] aspect-square object-contain' /> */}
+              <h1 className='text-lg font-semibold'>Choose Your Colour</h1>
             </div>
             <div className='my-5 flex flex-col items-center' onClick={() => setShowPicker(!showPicker)}>
               <div className={`border mb-2 flex w-full items-center gap-2 justify-center rounded hover:opacity-85 cursor-pointer p-3 font-medium text-gray text-${isDarkColor(selectedColor) ? "white" : "black"}`} style={{ backgroundColor: selectedColor }}>
@@ -293,7 +293,7 @@ const CustomProductPage = () => {
           <div className='border-b-2 p-5'>
             <div className='flex items-center gap-1'>
               <DownloadIcon width={18} height={18} />
-              <h1 className='text-lg font-medium'>Download Your Desgine</h1>
+              <h1 className='text-lg font-semibold'>Download Your Desgine</h1>
             </div>
             <div className='my-5'>
               <button onClick={handleDownload} className='flex w-full items-center gap-2 justify-center rounded bg-blue-500 hover:opacity-85 cursor-pointer p-3 font-medium text-gray text-white'>
