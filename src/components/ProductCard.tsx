@@ -24,7 +24,7 @@ const ProductCard = ({ imgUrl, data }: ProductProps) => {
             </h1>
             <div className="mt-4 flex  gap-2">
               <span className="mb-2 inline-block rounded-full bg-cyan-500 px-3 py-1 text-[10px] font-light text-white">
-                #Monkey
+                #Donkey
               </span>
               <span className="mb-2 inline-block rounded-full bg-cyan-500 px-3 py-1 text-[10px] font-semibold text-white">
                 #70%off
